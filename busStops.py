@@ -14,9 +14,9 @@ def getBusStopsData():
     D = {}
     result = data["result"]
     for i in range(len(result)):
-        if result[i]["values"][0]["value"] not in D.keys(): D[result[i]["values"][0]["value"]] = []
-        D[result[i]["values"][0]["value"]].append((result[i]["values"][1]["value"], result[i]["values"][2]["value"],
-                                                   result[i]["values"][4]["value"], result[i]["values"][5]["value"]))
+        if result[i]["values"][0]["value"] not in D.keys(): D[result[i]["values"][0]["value"]] = {}
+        D[result[i]["values"][0]["value"]][result[i]["values"][1]["value"]] = (result[i]["values"][2]["value"],
+                                                   result[i]["values"][4]["value"], result[i]["values"][5]["value"])
     return D
 
 
