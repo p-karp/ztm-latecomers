@@ -2,42 +2,39 @@ import warsaw_data_api as wawztm
 import matplotlib.pyplot as plt
 import numpy as np
 import time
-import sys
-
-# Tworzenie obiektu API
-ztm = wawztm.ztm(apikey='7febd25f-aa4e-4c31-8b8a-d517530106ca')
+import findAllBusStops
 
 
 # Funkcja pobierająca dane o przystankach
-def collectstops():
+def collectstops(ztm):
     '''
     dodać strukturę z danymi przysanków
     zapisać przysatnki w tej strukturze
     '''
-    pass
-
+    line = "519"
+    print(findAllBusStops.findAllBusStops(line))
 
 # Funkcja pobierające dane o autobusach
-def collectBusesData():
+def collectBusesData(ztm):
     exp = True
     while(exp):
         try:
             buses = ztm.get_buses_location()
             exp = False
         except TypeError:
-            sys.sleep(500)
+            time.sleep(200)
     return buses
 
 
 # Funkcja pobierające dane o tramwajach
-def collectTramsData():
+def collectTramsData(ztm):
     exp = True
     while(exp):
         try:
             trams = ztm.get_trams_location()
             exp = False
         except TypeError:
-            sys.sleep(500)
+            time.sleep(200)
     return trams
 
 
@@ -51,12 +48,17 @@ def calculateETA(veh):
     print("długość geograficzna: ", veh.location.longitude)
     print("---")
 
-def main():
-    stops = collectstops()
-    buses = collectBusesData()
-    trams = collectTramsData()
 
-# obliczanie ETA 
+def main():
+    # Tworzenie obiektu API
+    ztm = wawztm.ztm(apikey='7febd25f-aa4e-4c31-8b8a-d517530106ca')
+
+
+    stops = collectstops(ztm)
+    buses = collectBusesData(ztm)
+    trams = collectTramsData(ztm)
+
+    # obliczanie ETA 
     for bus in buses:
         calculateETA(bus)
     for tram in trams:
