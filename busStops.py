@@ -1,6 +1,6 @@
 import requests
 
-def getBusStopsData():
+def getBusStopsData() -> dict:
     # URL API z kluczem API
     url = 'https://api.um.warszawa.pl/api/action/dbstore_get/?id=1c08a38c-ae09-46d2-8926-4f9d25cb0630&sortBy=id&apikey=7febd25f-aa4e-4c31-8b8a-d517530106ca'
 
