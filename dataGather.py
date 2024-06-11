@@ -93,7 +93,7 @@ def main():
     # startowy (aktualny) czas zbierania danych w sekundach
     t = 0
     # limit czasu zbierania danych w sekundach
-    ''' Docelowo tydzień'''
+    ''' Docelowo tydzień''' # TODO: ZMIENIĆ na dłużej przed dziennym testem
     t_lim = 15*60   
     # krok czasowy co ile są zbierane dane w sekundach
     ''' Docelowo minuta dt = 60 lub półminuty dt = 30'''
@@ -102,65 +102,77 @@ def main():
     limit_odl = 0.011 # TODO: Ja bym jednak dał trochę większy margines na to
     limit_prob = 5 #w minutach TODO: docelowo ma być większy
     
+    # Do zapisu w csv
+    kolumny = ["przystanek", "nr_przystanku", "linia", "dzień", "godzina docelowa", "godzina faktyczna"]
+    nazwa_pliku = "test.csv"
     
     # główna pętla
-    while(t <= t_lim):
+    
+    with open(nazwa_pliku, mode = 'w', newline = '') as plik:
+        writer = csv.writer(plik, delimiter = ';')
         
-        
-        czas = datetime.now() # TODO: być może trzeba zrobić też taki czas który aktualizuje się w pętli?
-        czas_str = czas.strftime('%H:%M:%S')
-        
-        print(f"+-----------------------+")
-        print(f"-------{czas_str}----------")
-        #trams = collectTramsData(ztm)
-        
-        for przystanek in opoznienia:
-            for nr_przystanku in opoznienia[przystanek]:
-                p_nazwa, p_x, p_y = stops[przystanek][nr_przystanku]
-                p_x, p_y  = float(p_x), float(p_y)
-                #print("PRZYSTANEK: " + p_nazwa)
-                for linia in opoznienia[przystanek][nr_przystanku]:
-                    #print("LINIA: " + linia)
-                    buses = collectBusesData(ztm, linia)
-                    for brygada in opoznienia[przystanek][nr_przystanku][linia]:
-                        godz_planowa = list(opoznienia[przystanek][nr_przystanku][linia][brygada].keys())[0] #TODO: sprawdzić czy ten element wgl istnieje (bo może być to już ostatni autobus)
-                        godz_planowa_t = datetime.strptime(godz_planowa, '%H:%M:%S')
-                        #print("PLANOWY PRZYJAZD: ", godz_planowa)
-                        # Trzeba mieć na uwadze że raczej nie może przyjechać za wcześnie (np. 5 minut przed czasem)
-                        if (godz_planowa_t.hour <= 2 and czas.hour > 10): # Nie jestem pewien czy tu dobrze (to jest case na granicy dwóch dni)
-                            if ((godz_planowa_t.hour+24)*60 + godz_planowa_t.minute) - (czas.hour*60 + czas.minute) > 5:
+        writer.writerow(kolumny)
+        while(t <= t_lim):
+            
+            
+            czas = datetime.now() # TODO: być może trzeba zrobić też taki czas który aktualizuje się w pętli?
+            czas_str = czas.strftime('%H:%M:%S')
+            
+            print(f"+-----------------------+")
+            print(f"-------{czas_str}----------")
+            #trams = collectTramsData(ztm)
+            
+            for przystanek in opoznienia:
+                for nr_przystanku in opoznienia[przystanek]:
+                    p_nazwa, p_x, p_y = stops[przystanek][nr_przystanku]
+                    p_x, p_y  = float(p_x), float(p_y)
+                    #print("PRZYSTANEK: " + p_nazwa)
+                    for linia in opoznienia[przystanek][nr_przystanku]:
+                        #print("LINIA: " + linia)
+                        buses = collectBusesData(ztm, linia)
+                        for brygada in opoznienia[przystanek][nr_przystanku][linia]:
+                            if(len(opoznienia[przystanek][nr_przystanku][linia][brygada]) == 0):
                                 continue
-                        if (godz_planowa_t.hour*60 + godz_planowa_t.minute) - (czas.hour*60 + czas.minute) > 5:
-                            continue
-                        opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][2] -= 1 # Zmniejszamy liczbę szans na zmniejszenie minimum
-                        print(f"PRZYSTANEK: {p_nazwa} | LINIA: {linia} | ETA: {godz_planowa}")
-                        for b in buses:
-                            if (czas.hour*60 + czas.minute) - (b.time.hour*60 + b.time.minute) > 3:
-                                continue 
-                            if(b.brigade == brygada):
-                                odl = ((p_x - b.location.latitude)**2 + (p_y - b.location.longitude)**2)**(1/2)
-                                print("Odległość: " + str(odl))
-                                # Sprawdzamy czy wjechał do okręgu od którego zaczynamy go mierzyć
-                                if odl <= limit_odl:
-                                    print("Jest w okręgu!")
-                                    if odl < opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][0]: # Nowa minimalna odległość
-                                        print("Nowe minimum!")
-                                        opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][0] = odl
-                                        opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][1] = b.time
-                                        opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][2] = limit_prob
-                                    
-                                if opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][2] == 0:
-                                    print("Czas na osiągnięcie nowego minimum minął! Zapisujemy najlepszy wynik")
-                                    # TODO: zapisywanie do pliku
-                                    #del opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa]
-                                break
- 
-        # TODO: obliczyć kiedy wykonać następne zapytanie
-        roznica = datetime.now() - czas
-        roznica_s = 60 - roznica.seconds
-        if (roznica_s > 0):
-            time.sleep(roznica_s)
-        t = t + dt
+                            godz_planowa = list(opoznienia[przystanek][nr_przystanku][linia][brygada].keys())[0]
+                            godz_planowa_t = datetime.strptime(godz_planowa, '%H:%M:%S')
+                            #print("PLANOWY PRZYJAZD: ", godz_planowa)
+                            # Trzeba mieć na uwadze że raczej nie może przyjechać za wcześnie (np. 5 minut przed czasem)
+                            if (godz_planowa_t.hour <= 2 and czas.hour > 10): # Nie jestem pewien czy tu dobrze (to jest case na granicy dwóch dni)
+                                if ((godz_planowa_t.hour+24)*60 + godz_planowa_t.minute) - (czas.hour*60 + czas.minute) > 5:
+                                    continue
+                            if (godz_planowa_t.hour*60 + godz_planowa_t.minute) - (czas.hour*60 + czas.minute) > 5:
+                                continue
+                            opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][2] -= 1 # Zmniejszamy liczbę szans na zmniejszenie minimum
+                            print(f"PRZYSTANEK: {p_nazwa} | LINIA: {linia} | ETA: {godz_planowa}")
+                            for b in buses:
+                                if (czas.hour*60 + czas.minute) - (b.time.hour*60 + b.time.minute) > 3:
+                                    continue 
+                                if(b.brigade == brygada):
+                                    odl = ((p_x - b.location.latitude)**2 + (p_y - b.location.longitude)**2)**(1/2)
+                                    print("Odległość: " + str(odl))
+                                    # Sprawdzamy czy wjechał do okręgu od którego zaczynamy go mierzyć
+                                    if odl <= limit_odl:
+                                        print("Jest w okręgu!")
+                                        if odl < opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][0]: # Nowa minimalna odległość
+                                            print("Nowe minimum!")
+                                            opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][0] = odl
+                                            opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][1] = b.time
+                                            opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][2] = limit_prob
+                                        
+                                    if opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][2] == 0:
+                                        print("Czas na osiągnięcie nowego minimum minął! Zapisujemy najlepszy wynik")
+                                        if(opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][1]) == 0:
+                                            writer.writerow([przystanek, nr_przystanku, linia, str(czas.date()), godz_planowa, "nie zarejestrowano przyjazdu"])
+                                        writer.writerow([przystanek, nr_przystanku, linia, str(czas.date()), godz_planowa, opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][1].strftime('%H:%M:%S')])
+                                        plik.flush()
+                                        del opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa] # TODO: Sprawdzić czy to działa
+                                    break
+            roznica = datetime.now() - czas
+            roznica_s = 60 - roznica.seconds
+            if (roznica_s > 0):
+                time.sleep(roznica_s)
+            t = t + dt
+        
 
 
 if __name__ == "__main__":
