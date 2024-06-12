@@ -14,7 +14,7 @@ def getBusStopsData() -> dict:
                 data = response.json()
                 exp = False
             else:
-                time.sleep(5)
+                time.sleep(2)
                 return f'Błąd: {response.status_code}'
         except Exception as e:
             time.sleep(5)
@@ -27,15 +27,3 @@ def getBusStopsData() -> dict:
         D[result[i]["values"][0]["value"]][result[i]["values"][1]["value"]] = (result[i]["values"][2]["value"],
                                                    result[i]["values"][4]["value"], result[i]["values"][5]["value"])
     return D
-
-# x = getBusStopsData()
-# print(x['4121'])
-# import warsaw_data_api as wawztm
-# ztm = wawztm.ztm(apikey='7febd25f-aa4e-4c31-8b8a-d517530106ca')
-# # Pobierz ID przystanku "Czarnomorska"
-# Czarnomorska_id = ztm.get_bus_stop_id_by_bus_stop_name("Wawelska")
-
-# # Pobierz linie autobusowe dla danego przystanku
-# lines = ztm.get_lines_for_bus_stop_id(Czarnomorska_id, "03")
-# print(Czarnomorska_id)
-# print(lines)
