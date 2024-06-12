@@ -4,6 +4,7 @@ import numpy as np
 import time
 import busStops as bs
 from datetime import datetime
+import csv
 
 # Funkcja pobierające dane o autobusach
 def collectBusesData(ztm, linia):
@@ -93,8 +94,8 @@ def main():
     # startowy (aktualny) czas zbierania danych w sekundach
     t = 0
     # limit czasu zbierania danych w sekundach
-    ''' Docelowo tydzień''' # TODO: ZMIENIĆ na dłużej przed dziennym testem
-    t_lim = 15*60   
+    ''' Docelowo tydzień''' # TODO: ZMIENIĆ na dłużej
+    t_lim = 16*60*60
     # krok czasowy co ile są zbierane dane w sekundach
     ''' Docelowo minuta dt = 60 lub półminuty dt = 30'''
     dt = 60
@@ -162,10 +163,11 @@ def main():
                                     if opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][2] == 0:
                                         print("Czas na osiągnięcie nowego minimum minął! Zapisujemy najlepszy wynik")
                                         if(opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][1]) == 0:
-                                            writer.writerow([przystanek, nr_przystanku, linia, str(czas.date()), godz_planowa, "nie zarejestrowano przyjazdu"])
-                                        writer.writerow([przystanek, nr_przystanku, linia, str(czas.date()), godz_planowa, opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][1].strftime('%H:%M:%S')])
+                                            writer.writerow([p_nazwa, nr_przystanku, linia, str(czas.date()), godz_planowa, "nie zarejestrowano przyjazdu"])
+                                        else:
+                                            writer.writerow([p_nazwa, nr_przystanku, linia, str(czas.date()), godz_planowa, opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][1].strftime('%H:%M:%S')])
                                         plik.flush()
-                                        del opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa] # TODO: Sprawdzić czy to działa
+                                        del opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa]
                                     break
             roznica = datetime.now() - czas
             roznica_s = 60 - roznica.seconds
