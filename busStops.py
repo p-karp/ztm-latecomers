@@ -1,17 +1,25 @@
 import requests
+import time
 
 def getBusStopsData() -> dict:
-    # TODO: trzeba tutaj dodać try{}
     # URL API z kluczem API
     url = 'https://api.um.warszawa.pl/api/action/dbstore_get/?id=1c08a38c-ae09-46d2-8926-4f9d25cb0630&sortBy=id&apikey=7febd25f-aa4e-4c31-8b8a-d517530106ca'
-
+    
     # Wykonaj zapytanie HTTP GET
-    response = requests.get(url)
+    exp = True
+    while(exp):
+        try:
+            response = requests.get(url)
+            if response.status_code == 200:
+                data = response.json()
+                exp = False
+            else:
+                time.sleep(5)
+                return f'Błąd: {response.status_code}'
+        except Exception as e:
+            time.sleep(5)
+            print(f"Zwrócono wyjątek: {e}")
     # Sprawdź, czy zapytanie zakończyło się sukcesem
-    if response.status_code == 200:
-        data = response.json()
-    else:
-        return f'Błąd: {response.status_code}'
     D = {}
     result = data["result"]
     for i in range(len(result)):
@@ -20,3 +28,14 @@ def getBusStopsData() -> dict:
                                                    result[i]["values"][4]["value"], result[i]["values"][5]["value"])
     return D
 
+# x = getBusStopsData()
+# print(x['4121'])
+# import warsaw_data_api as wawztm
+# ztm = wawztm.ztm(apikey='7febd25f-aa4e-4c31-8b8a-d517530106ca')
+# # Pobierz ID przystanku "Czarnomorska"
+# Czarnomorska_id = ztm.get_bus_stop_id_by_bus_stop_name("Wawelska")
+
+# # Pobierz linie autobusowe dla danego przystanku
+# lines = ztm.get_lines_for_bus_stop_id(Czarnomorska_id, "03")
+# print(Czarnomorska_id)
+# print(lines)

@@ -13,8 +13,9 @@ def collectBusesData(ztm, linia):
         try:
             buses = ztm.get_buses_location(line = linia)
             exp = False
-        except TypeError:
+        except Exception as e:
             time.sleep(2)
+            print(f"Zwrócono wyjątek: {e}")
     return buses
 
 
@@ -25,8 +26,9 @@ def collectTramsData(ztm, linia):
         try:
             trams = ztm.get_trams_location(line = linia)
             exp = False
-        except TypeError:
+        except Exception as e:
             time.sleep(2)
+            print(f"Zwrócono wyjątek: {e}")
     return trams
  
 # Funkcja pobierające dane o rozkładach jazdy   
@@ -36,14 +38,16 @@ def collectScheduleData(ztm, przystanek):
         try:
             schedule = ztm.get_bus_stop_schedule_by_id(przystanek[0], przystanek[1], przystanek[2])
             exp = False
-        except TypeError:
+        except Exception as e:
             time.sleep(2)
+            print(f"Zwrócono wyjątek: {e}")
     return schedule
 
 '''
 Tutaj określamy które przystanki i linie bierzemy pod uwagę
 '''
-przystanki = [("7009", "01", "182"), ("7009", "01", "143"), ("7002", "01", "517")]
+# przystanki = [("7009", "01", "182"), ("7009", "01", "143"), ("7002", "01", "517")]
+przystanki = [("7009", "01", "182"), ("4121", "03", "9"), ("4121", "03", "7"), ("4121", "03", "1")]  #TODO: TRZEBA DODAĆ
 #przystanki = [("3032", "01", "N31"), ("3032", "01", "N81")]
 
 ''' 
@@ -58,7 +62,6 @@ def main():
 
     # Funkcja pobierająca dane o przystankach
     stops = bs.getBusStopsData()
-    #print(stops)
     
     # Pobieranie rozkładów jazdy
     # TODO: To trzeba będzie robić każdego dnia na nowo (bo zmiany w weekend)
@@ -71,16 +74,15 @@ def main():
         schedule = collectScheduleData(ztm, przystanek)
         brygady = {}
         for ride in schedule.rides:
-            if ride.time <= czas_str: # TODO: CZY PATRZYMY NA PEWNO "<=" CZY ZOSTAWIAMY JAKIŚ MARGINES 
+            if ride.time <= czas_str:
                 continue
-            # TODO: CZY TU KOLEJNOŚĆ OPERACJI JEST DOBRA?
             czas_przyjazdu = ride.time
             if int(czas_przyjazdu[:2]) >= 24:
                             czas_przyjazdu = f"{int(czas_przyjazdu[:2])-24}{czas_przyjazdu[2:]}"
             if ride.brigade not in brygady:
-                brygady[ride.brigade] = {czas_przyjazdu : [1000000, 0, 50]} # 50 to będzie jednocześnie mniej więcej maksymalne opoźnienie
+                brygady[ride.brigade] = {czas_przyjazdu : [1000000, 0, 360]} # 1,5 h
             else:
-                brygady[ride.brigade][czas_przyjazdu] = [1000000, 0, 50]
+                brygady[ride.brigade][czas_przyjazdu] = [1000000, 0, 360]
         
         if przystanek[0] not in opoznienia:
             opoznienia[przystanek[0]] = {przystanek[1] : {przystanek[2] : brygady}}
@@ -90,33 +92,30 @@ def main():
             else:
                 opoznienia[przystanek[0]][przystanek[1]][przystanek[2]] = brygady
     #print(opoznienia)
-    '''Uwaga: To są wartości testowe!'''
     # startowy (aktualny) czas zbierania danych w sekundach
     t = 0
     # limit czasu zbierania danych w sekundach
-    ''' Docelowo tydzień''' # TODO: ZMIENIĆ na dłużej
-    t_lim = 16*60*60
+    t_lim = 7*24*60*60
     # krok czasowy co ile są zbierane dane w sekundach
-    ''' Docelowo minuta dt = 60 lub półminuty dt = 30'''
-    dt = 60
+    dt = 15
     
-    limit_odl = 0.011 # TODO: Ja bym jednak dał trochę większy margines na to
-    limit_prob = 5 #w minutach TODO: docelowo ma być większy
+    # promień okręgu (w stopniach), kiedy jest łapany autobus
+    limit_odl = 0.013
+    # liczba prób na znalezienie nowego minimum
+    limit_prob = 20 # 15 minut TODO: 60
     
     # Do zapisu w csv
     kolumny = ["przystanek", "nr_przystanku", "linia", "dzień", "godzina docelowa", "godzina faktyczna"]
     nazwa_pliku = "test.csv"
     
     # główna pętla
-    
     with open(nazwa_pliku, mode = 'w', newline = '') as plik:
         writer = csv.writer(plik, delimiter = ';')
         
         writer.writerow(kolumny)
         while(t <= t_lim):
             
-            
-            czas = datetime.now() # TODO: być może trzeba zrobić też taki czas który aktualizuje się w pętli?
+            czas = datetime.now()
             czas_str = czas.strftime('%H:%M:%S')
             
             print(f"+-----------------------+")
@@ -130,22 +129,26 @@ def main():
                     #print("PRZYSTANEK: " + p_nazwa)
                     for linia in opoznienia[przystanek][nr_przystanku]:
                         #print("LINIA: " + linia)
-                        buses = collectBusesData(ztm, linia)
+                        if(linia < '100'):
+                            vehicles = collectTramsData(ztm, linia)
+                        else: 
+                            vehicles = collectBusesData(ztm, linia)
                         for brygada in opoznienia[przystanek][nr_przystanku][linia]:
                             if(len(opoznienia[przystanek][nr_przystanku][linia][brygada]) == 0):
                                 continue
                             godz_planowa = list(opoznienia[przystanek][nr_przystanku][linia][brygada].keys())[0]
                             godz_planowa_t = datetime.strptime(godz_planowa, '%H:%M:%S')
                             #print("PLANOWY PRZYJAZD: ", godz_planowa)
-                            # Trzeba mieć na uwadze że raczej nie może przyjechać za wcześnie (np. 5 minut przed czasem)
-                            if (godz_planowa_t.hour <= 2 and czas.hour > 10): # Nie jestem pewien czy tu dobrze (to jest case na granicy dwóch dni)
-                                if ((godz_planowa_t.hour+24)*60 + godz_planowa_t.minute) - (czas.hour*60 + czas.minute) > 5:
+                            # Trzeba mieć na uwadze że raczej nie może przyjechać za wcześnie (do 10 minut przed czasem)
+                            if (godz_planowa_t.hour <= 2 and czas.hour > 10):
+                                if ((godz_planowa_t.hour+24)*60 + godz_planowa_t.minute) - (czas.hour*60 + czas.minute) > 10:
                                     continue
-                            if (godz_planowa_t.hour*60 + godz_planowa_t.minute) - (czas.hour*60 + czas.minute) > 5:
+                            if (godz_planowa_t.hour*60 + godz_planowa_t.minute) - (czas.hour*60 + czas.minute) > 10:
                                 continue
-                            opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][2] -= 1 # Zmniejszamy liczbę szans na zmniejszenie minimum
+                            opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][2] -= 1 # Zmniejszamy liczbę prób na zmniejszenie minimum
                             print(f"PRZYSTANEK: {p_nazwa} | LINIA: {linia} | ETA: {godz_planowa}")
-                            for b in buses:
+                            print(vehicles)
+                            for b in vehicles:
                                 if (czas.hour*60 + czas.minute) - (b.time.hour*60 + b.time.minute) > 3:
                                     continue 
                                 if(b.brigade == brygada):
@@ -170,12 +173,11 @@ def main():
                                         del opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa]
                                     break
             roznica = datetime.now() - czas
-            roznica_s = 60 - roznica.seconds
+            roznica_s = 15 - roznica.seconds
             if (roznica_s > 0):
                 time.sleep(roznica_s)
             t = t + dt
         
-
 
 if __name__ == "__main__":
     main()
