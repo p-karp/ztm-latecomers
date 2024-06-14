@@ -8,3 +8,7 @@ with open('test_13_06_2024.csv', 'r') as file:
     
     for row in csv_reader:
         print(row)
+
+#milion przystanków c załej warszawy guzik da
+#trzeba manualnie sprawdzać, czy przystanek 02
+#jest w stronę centrum, czy nie, bo inaczej jest wielki burdel
