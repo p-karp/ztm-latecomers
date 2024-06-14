@@ -3,6 +3,9 @@ import time
 import busStops as bs
 from datetime import datetime
 import csv
+import os
+import concurrent.futures
+
 
 # Funkcja pobierające dane o autobusach
 def collectBusesData(ztm):
@@ -42,10 +45,9 @@ def collectScheduleData(ztm, przystanek):
     return schedule
 
 '''
-Tutaj określamy które przystanki i linie bierzemy pod uwagę
-'''
-# Autobusy: Szaserów-Szpital, Marszałkowska, Międzynarodowa, Dw.Zachodni, Konarskiego, Roschata, Nałęczowska, Czarnomorska, Dolna, Pl.Konstytucji
-# Tramwaje: Hynka, Wawelska, Muzeum Narodowe, Wiatraczna
+Tutaj określamy które przystanki i linie bierzemy pod uwagę:
+  Autobusy: Szaserów-Szpital, Marszałkowska, Międzynarodowa, Dw.Zachodni, Konarskiego, Roschata, Nałęczowska, Czarnomorska, Dolna, Pl.Konstytucji
+  Tramwaje: Hynka, Wawelska, Muzeum Narodowe, Wiatraczna
 '''
 przystanki = [
               ("2112", "02", "102"), ("2112", "02", "188"), ("2112", "02", "202"), ("2112", "02", "523"),
@@ -81,7 +83,7 @@ przystanki = [
               ("2008", "07", "9"), ("2008", "07", "24"),
               ("2008", "06", "9"), ("2008", "06", "24"),
               ]
-'''
+
 # TODO: pododawać więcej tramwajów, bo dobrze działają
 
 # wersja nocna
@@ -98,8 +100,6 @@ przystanki = [
                ("7041", "06", "7"), ("7041", "06", "9"), ("7041", "06", "22"), ("7041", "06", "24"), ("7041", "06", "25"),
              ]
 '''
-
-przystanki = [("2098", "01", "141"), ("2098", "01", "143"), ("2098", "01", "182")]
 
 # Zapamiętujemy wszysktie linie które będziemy brali pod uwagę
 linie = []
@@ -128,28 +128,36 @@ def main():
     '''
 
     opoznienia = {}
-    
-    for przystanek in przystanki:
-        schedule = collectScheduleData(ztm, przystanek)
-        brygady = {}
-        for ride in schedule.rides:
-            if ride.time <= czas_str:
-                continue
-            czas_przyjazdu = ride.time
-            if int(czas_przyjazdu[:2]) >= 24:
-                            czas_przyjazdu = f"{int(czas_przyjazdu[:2])-24}{czas_przyjazdu[2:]}"
-            if ride.brigade not in brygady:
-                brygady[ride.brigade] = {czas_przyjazdu : [1000000, 0, 360]} # 1,5 h
-            else:
-                brygady[ride.brigade][czas_przyjazdu] = [1000000, 0, 360]
-        
-        if przystanek[0] not in opoznienia:
-            opoznienia[przystanek[0]] = {przystanek[1] : {przystanek[2] : brygady}}
-        else:
-            if przystanek[1] not in opoznienia[przystanek[0]]:
-                opoznienia[przystanek[0]][przystanek[1]] = {przystanek[2] : brygady}
-            else:
-                opoznienia[przystanek[0]][przystanek[1]][przystanek[2]] = brygady
+
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        futures = {executor.submit(collectScheduleData, ztm, przystanek): przystanek for przystanek in przystanki}
+        for future in concurrent.futures.as_completed(futures):
+            przystanek = futures[future]
+            try:
+                schedule = future.result()
+                brygady = {}
+                for ride in schedule.rides:
+                    if ride.time <= czas_str:
+                        continue
+                    czas_przyjazdu = ride.time
+                    if int(czas_przyjazdu[:2]) >= 24:
+                        czas_przyjazdu = f"{int(czas_przyjazdu[:2]) - 24}{czas_przyjazdu[2:]}"
+                    if ride.brigade not in brygady:
+                        brygady[ride.brigade] = {czas_przyjazdu: [1000000, 0, 360]}  # 1,5 h
+                    else:
+                        brygady[ride.brigade][czas_przyjazdu] = [1000000, 0, 360]
+
+                if przystanek[0] not in opoznienia:
+                    opoznienia[przystanek[0]] = {przystanek[1]: {przystanek[2]: brygady}}
+                else:
+                    if przystanek[1] not in opoznienia[przystanek[0]]:
+                        opoznienia[przystanek[0]][przystanek[1]] = {przystanek[2]: brygady}
+                    else:
+                        opoznienia[przystanek[0]][przystanek[1]][przystanek[2]] = brygady
+
+            except Exception as e:
+                print(f"Błąd dla przystanku {przystanek}: {e}")
+
     #print(opoznienia)
     
     # startowy (aktualny) czas zbierania danych w sekundach
@@ -230,10 +238,6 @@ def main():
                                 continue
                             b = vehicles[linia][brygada]
                             
-                            # To myślę, że nie jest potrzebne tak naprawdę (bo i tak zapamiętujemy czas od ostatniego wysłanego sygnału GPS przez autobus)
-                            #if (czas2.hour*60 + czas2.minute) - (b.time.hour*60 + b.time.minute) > 3:
-                            #    continue 
-                            
                             odl = ((p_x - b.location.latitude)**2 + (p_y - b.location.longitude)**2)**(1/2)
                             print("Odległość: " + str(odl) + ", Pozotało prób: " + str(opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][2]))
                             # Sprawdzamy czy wjechał do okręgu od którego zaczynamy go mierzyć
@@ -252,6 +256,8 @@ def main():
                                 else:
                                     writer.writerow([p_nazwa, nr_przystanku, linia, str(czas2.date()), godz_planowa, opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][1].strftime('%H:%M:%S')])
                                 plik.flush()
+                                # TODO: zmniejsza wydajność aplikacji, czy warto?
+                                # os.fsync(plik.fileno())
                                 del opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa]
                                     
             roznica = datetime.now() - czas
