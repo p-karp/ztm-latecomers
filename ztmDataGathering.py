@@ -3,9 +3,7 @@ import time
 import busStops as bs
 from datetime import datetime
 import csv
-import os
 import concurrent.futures
-
 
 # Funkcja pobierające dane o autobusach
 def collectBusesData(ztm):
@@ -256,8 +254,6 @@ def main():
                                 else:
                                     writer.writerow([p_nazwa, nr_przystanku, linia, str(czas2.date()), godz_planowa, opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][1].strftime('%H:%M:%S')])
                                 plik.flush()
-                                # TODO: zmniejsza wydajność aplikacji, czy warto?
-                                # os.fsync(plik.fileno())
                                 del opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa]
                                     
             roznica = datetime.now() - czas
