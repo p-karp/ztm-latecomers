@@ -5,11 +5,11 @@ from datetime import datetime
 import csv
 
 # Funkcja pobierające dane o autobusach
-def collectBusesData(ztm, linia):
+def collectBusesData(ztm):
     exp = True
     while(exp):
         try:
-            buses = ztm.get_buses_location(line = linia)
+            buses = ztm.get_buses_location()
             exp = False
         except Exception as e:
             time.sleep(2)
@@ -18,11 +18,11 @@ def collectBusesData(ztm, linia):
 
 
 # Funkcja pobierające dane o tramwajach
-def collectTramsData(ztm, linia):
+def collectTramsData(ztm):
     exp = True
     while(exp):
         try:
-            trams = ztm.get_trams_location(line = linia)
+            trams = ztm.get_trams_location()
             exp = False
         except Exception as e:
             time.sleep(2)
@@ -46,7 +46,7 @@ Tutaj określamy które przystanki i linie bierzemy pod uwagę
 '''
 # Autobusy: Szaserów-Szpital, Marszałkowska, Międzynarodowa, Dw.Zachodni, Konarskiego, Roschata, Nałęczowska, Czarnomorska, Dolna, Pl.Konstytucji
 # Tramwaje: Hynka, Wawelska, Muzeum Narodowe, Wiatraczna
-
+'''
 przystanki = [
               ("2112", "02", "102"), ("2112", "02", "188"), ("2112", "02", "202"), ("2112", "02", "523"),
               ("2112", "01", "102"), ("2112", "01", "188"), ("2112", "01", "202"), ("2112", "01", "523"),
@@ -81,42 +81,54 @@ przystanki = [
               ("2008", "07", "9"), ("2008", "07", "24"),
               ("2008", "06", "9"), ("2008", "06", "24"),
               ]
+'''
 # TODO: pododawać więcej tramwajów, bo dobrze działają
 
 # wersja nocna
 # przystanki = [("3032", "01", "N31"), ("3032", "01", "N81")]
 
 # wersja testowa
-# przystanki = [
-#               ("2098", "01", "141"), ("2098", "01", "143"), ("2098", "01", "182"), ("2098", "01", "188"), ("2098", "01", "523"), ("7009", "01", "520"), ("7009", "01", "525"), ("7009", "01", "514"), ("7009", "01", "502"),
-#               ("2098", "02", "141"), ("2098", "02", "143"), ("2098", "02", "182"), ("2098", "02", "188"), ("2098", "02", "523"), ("7009", "02", "520"), ("7009", "02", "525"), ("7009", "02", "514"), ("7009", "02", "502"),
-#               ("7009", "01", "182"), ("7009", "01", "143"), ("7009", "01", "138"), ("7009", "01", "187"), ("7009", "01", "523"), ("7009", "01", "520"), ("7009", "01", "525"), ("7009", "01", "514"), ("7009", "01", "502"), ("7009", "01", "411"),
-#               ("7009", "02", "182"), ("7009", "02", "143"), ("7009", "02", "138"), ("7009", "02", "187"), ("7009", "02", "523"), ("7009", "02", "520"), ("7009", "02", "525"), ("7009", "02", "514"), ("7009", "02", "502"), ("7009", "02", "411"),
-#               ("7041", "05", "7"), ("7041", "05", "9"), ("7041", "05", "22"), ("7041", "05", "24"), ("7041", "05", "25"),
-#               ("7041", "06", "7"), ("7041", "06", "9"), ("7041", "06", "22"), ("7041", "06", "24"), ("7041", "06", "25"),
-#             ]
-
-
-''' 
-Struktura opoznienia
-
-opoznienia = {"id_przystanku" : {"kierunek": {"nr_linii": {"nr_brygady" : {"godzina_odjazdu": ["min_odl", "czas_przyjazdu" ,"pozostale_proby"]}}}}}
 '''
+przystanki = [
+               ("2098", "01", "141"), ("2098", "01", "143"), ("2098", "01", "182"), ("2098", "01", "188"), ("2098", "01", "523"), ("7009", "01", "520"), ("7009", "01", "525"), ("7009", "01", "514"), ("7009", "01", "502"),
+               ("2098", "02", "141"), ("2098", "02", "143"), ("2098", "02", "182"), ("2098", "02", "188"), ("2098", "02", "523"), ("7009", "02", "520"), ("7009", "02", "525"), ("7009", "02", "514"), ("7009", "02", "502"),
+               ("7009", "01", "182"), ("7009", "01", "143"), ("7009", "01", "138"), ("7009", "01", "187"), ("7009", "01", "523"), ("7009", "01", "520"), ("7009", "01", "525"), ("7009", "01", "514"), ("7009", "01", "502"), ("7009", "01", "411"),
+               ("7009", "02", "182"), ("7009", "02", "143"), ("7009", "02", "138"), ("7009", "02", "187"), ("7009", "02", "523"), ("7009", "02", "520"), ("7009", "02", "525"), ("7009", "02", "514"), ("7009", "02", "502"), ("7009", "02", "411"),
+               ("7041", "05", "7"), ("7041", "05", "9"), ("7041", "05", "22"), ("7041", "05", "24"), ("7041", "05", "25"),
+               ("7041", "06", "7"), ("7041", "06", "9"), ("7041", "06", "22"), ("7041", "06", "24"), ("7041", "06", "25"),
+             ]
+'''
+
+przystanki = [("2098", "01", "141"), ("2098", "01", "143"), ("2098", "01", "182")]
+
+# Zapamiętujemy wszysktie linie które będziemy brali pod uwagę
+linie = []
+for p in przystanki:
+    linia = p[2]
+    if linia not in linie:
+        linie.append(linia)
 
 def main():
     # Tworzenie obiektu API
     ztm = wawztm.ztm(apikey='7febd25f-aa4e-4c31-8b8a-d517530106ca')
-
+    
     # Funkcja pobierająca dane o przystankach
     stops = bs.getBusStopsData()
+
+    czas = datetime.now()   
+    czas_str = czas.strftime('%H:%M:%S')
     
     # Pobieranie rozkładów jazdy
     # TODO: To trzeba będzie robić każdego dnia na nowo (bo zmiany w weekend)
     
-    czas = datetime.now()
-    czas_str = czas.strftime('%H:%M:%S')
+    ''' 
+    Struktura opoznienia
+
+    opoznienia = {"id_przystanku" : {"kierunek": {"nr_linii": {"nr_brygady" : {"godzina_odjazdu": ["min_odl", "czas_przyjazdu" ,"pozostale_proby"]}}}}}
+    '''
 
     opoznienia = {}
+    
     for przystanek in przystanki:
         schedule = collectScheduleData(ztm, przystanek)
         brygady = {}
@@ -139,6 +151,7 @@ def main():
             else:
                 opoznienia[przystanek[0]][przystanek[1]][przystanek[2]] = brygady
     #print(opoznienia)
+    
     # startowy (aktualny) czas zbierania danych w sekundach
     t = 0
     # limit czasu zbierania danych w sekundach
@@ -168,13 +181,25 @@ def main():
             print(f"+-----------------------+")
             print(f"-------{czas_str}----------")
             
-            # vehicles = collectBusesData(ztm)
-            #TODO: vehicles w pętli iterować po liniach
-            # for bus in buses:
-            #     print(bus.lines)
-            #     print(bus.brigade)
-            # {'517': {'1': veh, '2': veh} }
-
+            # Tworzymy słownik vehicles, w którym przechowujemy zlokalizowane busy, podzielone na linie i brygady
+            # {'517': {'3': veh, '7':veh}, ...}
+            vehicles = {}
+            
+            buses = collectBusesData(ztm)
+            trams = collectTramsData(ztm)
+            
+            for veh in (buses+trams):
+                if veh.lines not in linie:
+                    continue
+                if veh.lines not in vehicles:
+                    vehicles[veh.lines] = {}
+                # Jeżeli było dwa lub więcej autobusów z tej samej brygady, to bierzemy tylko ten z największym czasem
+                if veh.brigade in vehicles[veh.lines]:
+                    if veh.time < vehicles[veh.lines][veh.brigade].time:
+                        continue
+                vehicles[veh.lines][veh.brigade] = veh
+            
+            
             for przystanek in opoznienia:
                 for nr_przystanku in opoznienia[przystanek]:
                     p_nazwa, p_x, p_y = stops[przystanek][nr_przystanku]
@@ -182,48 +207,53 @@ def main():
                     #print("PRZYSTANEK: " + p_nazwa)
                     for linia in opoznienia[przystanek][nr_przystanku]:
                         #print("LINIA: " + linia)
-                        if(len(linia) == 3):
-                            vehicles = collectBusesData(ztm, linia)
-                        else: 
-                            vehicles = collectTramsData(ztm, linia)
                         for brygada in opoznienia[przystanek][nr_przystanku][linia]:
                             if(len(opoznienia[przystanek][nr_przystanku][linia][brygada]) == 0):
                                 continue
                             godz_planowa = list(opoznienia[przystanek][nr_przystanku][linia][brygada].keys())[0]
                             godz_planowa_t = datetime.strptime(godz_planowa, '%H:%M:%S')
+                            czas2 = datetime.now()
                             #print("PLANOWY PRZYJAZD: ", godz_planowa)
                             # Trzeba mieć na uwadze że raczej nie może przyjechać za wcześnie (do 10 minut przed czasem)
-                            if (godz_planowa_t.hour <= 2 and czas.hour > 10):
-                                if ((godz_planowa_t.hour+24)*60 + godz_planowa_t.minute) - (czas.hour*60 + czas.minute) > 10:
+                            if (godz_planowa_t.hour <= 2 and czas2.hour > 10):
+                                if ((godz_planowa_t.hour+24)*60 + godz_planowa_t.minute) - (czas2.hour*60 + czas2.minute) > 10:
                                     continue
-                            if (godz_planowa_t.hour*60 + godz_planowa_t.minute) - (czas.hour*60 + czas.minute) > 10:
+                            if (godz_planowa_t.hour*60 + godz_planowa_t.minute) - (czas2.hour*60 + czas2.minute) > 10:
                                 continue
                             opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][2] -= 1 # Zmniejszamy liczbę prób na zmniejszenie minimum
                             print(f"PRZYSTANEK: {p_nazwa} | LINIA: {linia} | ETA: {godz_planowa}")
-                            for b in vehicles:          # TODO: Nie trzeba będzie robić już tej pętli bo znamy ją w słowoniku ( ale sprawdzić czy istnieje w słowniku)
-                                if (datetime.now().hour*60 + datetime.now().minute) - (b.time.hour*60 + b.time.minute) > 3:
-                                    continue 
-                                if(b.brigade == brygada):
-                                    odl = ((p_x - b.location.latitude)**2 + (p_y - b.location.longitude)**2)**(1/2)
-                                    print("Odległość: " + str(odl) + ", Pozotało prób: " + str(opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][2]))
-                                    # Sprawdzamy czy wjechał do okręgu od którego zaczynamy go mierzyć
-                                    if odl <= limit_odl:
-                                        print("Jest w okręgu!")
-                                        if odl < opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][0]: # Nowa minimalna odległość
-                                            print("Nowe minimum!")
-                                            opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][0] = odl
-                                            opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][1] = b.time
-                                            opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][2] = limit_prob
-                                        
-                                    if opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][2] == 0:
-                                        print("Czas na osiągnięcie nowego minimum minął! Zapisujemy najlepszy wynik")
-                                        if(opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][1]) == 0:
-                                            writer.writerow([p_nazwa, nr_przystanku, linia, str(czas.date()), godz_planowa, "nie zarejestrowano przyjazdu"])
-                                        else:
-                                            writer.writerow([p_nazwa, nr_przystanku, linia, str(czas.date()), godz_planowa, opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][1].strftime('%H:%M:%S')])
-                                        plik.flush()
-                                        del opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa]
-                                    break
+                            
+                            # Pobieramy żądany autobus (na podstawie linii i brygady) z utworzonego słownika vehicles
+                            # Ale najpierw sprawdzamy czy tam jest
+                            if brygada not in vehicles[linia]:
+                                print(f"Autobus: {linia} brygada: {brygada} to autobus widmo! Nie otrzymano jego sygnału GPS")
+                                continue
+                            b = vehicles[linia][brygada]
+                            
+                            # To myślę, że nie jest potrzebne tak naprawdę (bo i tak zapamiętujemy czas od ostatniego wysłanego sygnału GPS przez autobus)
+                            #if (czas2.hour*60 + czas2.minute) - (b.time.hour*60 + b.time.minute) > 3:
+                            #    continue 
+                            
+                            odl = ((p_x - b.location.latitude)**2 + (p_y - b.location.longitude)**2)**(1/2)
+                            print("Odległość: " + str(odl) + ", Pozotało prób: " + str(opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][2]))
+                            # Sprawdzamy czy wjechał do okręgu od którego zaczynamy go mierzyć
+                            if odl <= limit_odl:
+                                print("Jest w okręgu!")
+                                if odl < opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][0]: # Nowa minimalna odległość
+                                    print("Nowe minimum!")
+                                    opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][0] = odl
+                                    opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][1] = b.time
+                                    opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][2] = limit_prob
+                                
+                            if opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][2] == 0:
+                                print("Czas na osiągnięcie nowego minimum minął! Zapisujemy najlepszy wynik")
+                                if(opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][1]) == 0:
+                                    writer.writerow([p_nazwa, nr_przystanku, linia, str(czas2.date()), godz_planowa, "nie zarejestrowano przyjazdu"])
+                                else:
+                                    writer.writerow([p_nazwa, nr_przystanku, linia, str(czas2.date()), godz_planowa, opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][1].strftime('%H:%M:%S')])
+                                plik.flush()
+                                del opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa]
+                                    
             roznica = datetime.now() - czas
             roznica_s = 15 - roznica.seconds
             if (roznica_s > 0):
