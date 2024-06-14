@@ -168,6 +168,13 @@ def main():
             print(f"+-----------------------+")
             print(f"-------{czas_str}----------")
             
+            # vehicles = collectBusesData(ztm)
+            #TODO: vehicles w pętli iterować po liniach
+            # for bus in buses:
+            #     print(bus.lines)
+            #     print(bus.brigade)
+            # {'517': {'1': veh, '2': veh} }
+
             for przystanek in opoznienia:
                 for nr_przystanku in opoznienia[przystanek]:
                     p_nazwa, p_x, p_y = stops[przystanek][nr_przystanku]
@@ -193,8 +200,8 @@ def main():
                                 continue
                             opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][2] -= 1 # Zmniejszamy liczbę prób na zmniejszenie minimum
                             print(f"PRZYSTANEK: {p_nazwa} | LINIA: {linia} | ETA: {godz_planowa}")
-                            for b in vehicles:
-                                if (czas.hour*60 + czas.minute) - (b.time.hour*60 + b.time.minute) > 3:
+                            for b in vehicles:          # TODO: Nie trzeba będzie robić już tej pętli bo znamy ją w słowoniku ( ale sprawdzić czy istnieje w słowniku)
+                                if (datetime.now().hour*60 + datetime.now().minute) - (b.time.hour*60 + b.time.minute) > 3:
                                     continue 
                                 if(b.brigade == brygada):
                                     odl = ((p_x - b.location.latitude)**2 + (p_y - b.location.longitude)**2)**(1/2)
