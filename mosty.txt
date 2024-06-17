@@ -1,0 +1,37 @@
+Most Północny: nic tu nie jeździ xD. Autobusy opisane na stronie ZTM (artykuł z 2012 r. nie istneją w wykazie warszawskich autobusów)
+
+Most Grota - Roweckiego: 
+114 -> UKSW: [Pelcowizna 06, PKP Toruńska 01, Żerań FSO 03, Most Grota - Roweckiego 01, Czarnieckiego 02, Plac Wilsona 06, Suzina 02]
+114 -> Bródno Podgrodzie: [Plac Wilsona 05, Czarnieckiego 01, Centrum Olimpijskie 02, Most Grota-Roweckiego 02, Żerań FSO 04, PKP Toruńska 02, Bazyliańska 01]
+
+Most Gdański: 
+500 -> Rodno Radosława [Kołowa 01, Rogowska 01, Rondo żaba 01, Rondo Starzyńskiego 01, Dworzec Gdański 04, Baseny Inflancka 02, Rondo "Radosława" 04]
+500 -> Bródno Podgrodzie [Rondo "Radosława" 03, Baseny Inflancka 01, Dworzec Gdański 03, Rondo Starzyńskiego 02, Rondo Żaba 02, Rogowska 02, Kołowa 02]
+6 -> Metro Młociny [Plac Hallera 04, Rondo Starzyńskiego 03, Wybrzeże Helskie 03, Most Gdański 04, Park Traugutta 04, KS Polonia 02, Dworzec Gdański 06]
+6 -> Gocławek [Dworzec Gdański 05, KS Polonia 01, Park Traugutta 04, Most Gdański 03, Wybrzeże Helskie 04, Rondo Starzyńskiego 04, Plac Hallera 03]
+
+Most Śląsko - Dąbrowski:
+190 -> Os. Górczewska [Szwedzka 01, Rzesztotarskiej 01, Dworzc Wileński 03, Park Praski 01, Stare Miasto 02, Metro Ratusz - Arsenał 10, Kino Femina 02, Wola - Ratusz 02]
+190 -> CH. Marki [Wola - Ratusz 01, Kino Femina 01, Metro Ratusz - Arsenał 09, Stare Miasto 01, Park Praski 02, Dworzec Wileński 04, Rzesztotarskiej 02, Szwedzka 02]
+26 - > Metro Młociny [Kijowka 04, Ząbkowska 04, Dworzec Wileński 03, Park Praski 01, Stare Miasto 02, Metro Ratusz - Arsenał 10, Kino Femina 06, Wola - Ratusz 04]
+26 -> Wiatraczna [Wola - Ratusz 03, Kino Femina 05, Metro Ratusz - Arsenał 09, Stare Miasto 01, Park Praski 02, Dworzec Wileński 07, Ząbkowska 03, Kijowska 03]
+
+Most świętokrzyski:
+162 -> EC Siekierki [Dworzec Wileński 01, Sierakowskiego 01, Os. Panieńska 01, Most Świętokrzyski 03, Metro Centrum Nauki Kopernik 04, Topiel 03, PKP Powiśle 03]
+162 -> pl Hallera [PKP Powiśle 04, Topiel 01, Metro CNK 03, Most Świętokrzyski 02, Os. Panieńska 02, Sierakowskiego 02, Ząbkowska 06, Dworzec Wileński 02]
+
+Most Poniatowskiego:
+521 -> Szczęśliwice [Wiatraczna 03, Grenadierów 01, Rondo Waszyngtona 01, Muzeum Narodowe 02, Centrum 06, Dw. Centralny 02, Plac Zawiszy 04]
+521 -> Falenica [Plac zawiszy 03, Dworzec Centralny 01, Centrum 15, Muzeum Narodowe 01, Rondo Waszyngtona 02, Grenadierów02, Wiatraczna 22]
+9 -> P + R Al. Krakowska [Park Skaryszewski 03, Berezyńska 01, Rondo Waszyngtona 05, Most Poniatowskiego 04, Muzeum Narodowe 06, Krucza 06, Centrum 10]
+9 -> Gocławek [Centrum 09, Krucza 05, Muzeum Narodowe 05, Most Poniatwoskiiego 03, Rondo Waszyngtona 06, Berezyńska 02, Park Skaryszewski 02]
+
+Most Łazienkowski:
+523 -> Nowe Bemowo [Przyczółek Grochowski 01, Międzynarodowa 01, Saska 01, Rozbrat 02, Plac Na Rozdrożu 06, Marszałkowska 02, Metro Politechnika 02]
+523 -> PKP Olszynka Grochowska [Metro Politechnika 01, Marszałkowska 01, Pl. Na Rozdrożu 05, Rozbrat 01, Saska 02, Międzynarodowa 02, Przyczółek Grochowski 02]
+
+Most Siekierkowski:
+148 -> Lotnisko Chopina [Bora - Komorowskiego 01, Horbaczewskiego 01, Gocław 09, Most Siekierkowski 03, Siekierki - Sanktuarium 01, Małe Siekierki 01, Ogrody Działkowe Czerniaków 01]
+148 -> Wiatraczna [Ogrody Działkowe Czerniaków 02, Małe Siekierki 02, Siekierki - Sanktuarium 02, Most Siekierkowski 04, Gocław 06, Horbaczewskiego 02, Bora - Komorowskiego 04]
+
+Most Południowy: tu również nic nie jeździ, ale to POW więc to nie jest zaskakujące
