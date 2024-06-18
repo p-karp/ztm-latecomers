@@ -16,7 +16,7 @@ def collectBusesData(ztm):
             exp = False
         except Exception as e:
             time.sleep(2)
-            print(f"Zwrócono wyjątek: {e}")
+            #print(f"Zwrócono wyjątek: {e}")
     return buses
 
 
@@ -29,7 +29,7 @@ def collectTramsData(ztm):
             exp = False
         except Exception as e:
             time.sleep(2)
-            print(f"Zwrócono wyjątek: {e}")
+            #print(f"Zwrócono wyjątek: {e}")
     return trams
  
 # Funkcja pobierające dane o rozkładach jazdy   
@@ -41,13 +41,15 @@ def collectScheduleData(ztm, przystanek):
             exp = False
         except Exception as e:
             time.sleep(2)
-            print(f"Zwrócono wyjątek: {e}")
+            #print(f"Zwrócono wyjątek: {e}")
     return schedule
 
 '''
 Tutaj określamy które przystanki i linie bierzemy pod uwagę:
   Autobusy: Szaserów-Szpital, Marszałkowska, Międzynarodowa, Dw.Zachodni, Konarskiego, Roschata, Nałęczowska, Czarnomorska, Dolna, Pl.Konstytucji
   Tramwaje: Hynka, Wawelska, Muzeum Narodowe, Wiatraczna
+'''
+
 '''
 przystanki = [
               ("2112", "02", "102"), ("2112", "02", "188"), ("2112", "02", "202"), ("2112", "02", "523"),
@@ -83,14 +85,14 @@ przystanki = [
               ("2008", "07", "9"), ("2008", "07", "24"),
               ("2008", "06", "9"), ("2008", "06", "24"),
               ]
-
+'''
 # TODO: pododawać więcej tramwajów, bo dobrze działają
 
 # wersja nocna
 # przystanki = [("3032", "01", "N31"), ("3032", "01", "N81")]
 
 # wersja testowa
-'''
+
 przystanki = [
                ("2098", "01", "141"), ("2098", "01", "143"), ("2098", "01", "182"), ("2098", "01", "188"), ("2098", "01", "523"), ("7009", "01", "520"), ("7009", "01", "525"), ("7009", "01", "514"), ("7009", "01", "502"),
                ("2098", "02", "141"), ("2098", "02", "143"), ("2098", "02", "182"), ("2098", "02", "188"), ("2098", "02", "523"), ("7009", "02", "520"), ("7009", "02", "525"), ("7009", "02", "514"), ("7009", "02", "502"),
@@ -99,7 +101,7 @@ przystanki = [
                ("7041", "05", "7"), ("7041", "05", "9"), ("7041", "05", "22"), ("7041", "05", "24"), ("7041", "05", "25"),
                ("7041", "06", "7"), ("7041", "06", "9"), ("7041", "06", "22"), ("7041", "06", "24"), ("7041", "06", "25"),
              ]
-'''
+             
 
 # Zapamiętujemy wszysktie linie które będziemy brali pod uwagę
 linie = []
@@ -165,17 +167,18 @@ def main():
     # limit czasu zbierania danych w sekundach
     t_lim = 7*24*60*60
     # krok czasowy co ile są zbierane dane w sekundach
-    dt = 15
+    dt = 10
     
     # promień okręgu (w stopniach), kiedy jest łapany autobus
     limit_odl = 0.013
     # liczba prób na znalezienie nowego minimum
-    limit_prob = 20  # 5 minut TODO: 60 # 15 minut
+    limit_prob = 6*15  # 5 minut TODO: 60 # 15 minut
     
     # Do zapisu w csv
     kolumny = ["przystanek", "nr_przystanku", "linia", "dzień", "godzina docelowa", "godzina faktyczna"]
     nazwa_pliku = "test.csv"
     
+    maks_odl = 0
     # główna pętla
     with open(nazwa_pliku, mode = 'w', newline = '') as plik:
         writer = csv.writer(plik, delimiter = ';')
@@ -186,8 +189,8 @@ def main():
             czas = datetime.now()
             czas_str = czas.strftime('%H:%M:%S')
             
-            print(f"+-----------------------+")
-            print(f"-------{czas_str}----------")
+            #print(f"+-----------------------+")
+            #print(f"-------{czas_str}----------")
             
             # Tworzymy słownik vehicles, w którym przechowujemy zlokalizowane busy, podzielone na linie i brygady
             # {'517': {'3': veh, '7':veh}, ...}
@@ -229,28 +232,32 @@ def main():
                             if (godz_planowa_t.hour*60 + godz_planowa_t.minute) - (czas2.hour*60 + czas2.minute) > 10:
                                 continue
                             opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][2] -= 1 # Zmniejszamy liczbę prób na zmniejszenie minimum
-                            print(f"PRZYSTANEK: {p_nazwa} | LINIA: {linia} | ETA: {godz_planowa}")
+                            #print(f"PRZYSTANEK: {p_nazwa} | LINIA: {linia} | ETA: {godz_planowa}")
                             
                             # Pobieramy żądany autobus (na podstawie linii i brygady) z utworzonego słownika vehicles
                             # Ale najpierw sprawdzamy czy tam jest
                             if brygada not in vehicles[linia]:
-                                print(f"Autobus: {linia} brygada: {brygada} to autobus widmo! Nie otrzymano jego sygnału GPS")
+                                #print(f"Autobus: {linia} brygada: {brygada} to autobus widmo! Nie otrzymano jego sygnału GPS")
                                 continue
                             b = vehicles[linia][brygada]
                             
                             odl = ((p_x - b.location.latitude)**2 + (p_y - b.location.longitude)**2)**(1/2)
-                            print("Odległość: " + str(odl) + ", Pozotało prób: " + str(opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][2]))
+                            #print("Odległość: " + str(odl) + ", Pozotało prób: " + str(opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][2]))
                             # Sprawdzamy czy wjechał do okręgu od którego zaczynamy go mierzyć
                             if odl <= limit_odl:
-                                print("Jest w okręgu!")
+                                #print("Jest w okręgu!")
                                 if odl < opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][0]: # Nowa minimalna odległość
-                                    print("Nowe minimum!")
+                                    #print("Nowe minimum!")
                                     opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][0] = odl
                                     opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][1] = b.time
                                     opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][2] = limit_prob
                                 
                             if opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][2] == 0:
-                                print("Czas na osiągnięcie nowego minimum minął! Zapisujemy najlepszy wynik")
+                                #print("Czas na osiągnięcie nowego minimum minął! Zapisujemy najlepszy wynik")
+                                print(f"Aktualna (w km): {opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][0]*111}")
+                                if(opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][0] > maks_odl):
+                                    maks_odl = opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][0]
+                                print(f"Maksymalna (w km): {maks_odl*111}") 
                                 if(opoznienia[przystanek][nr_przystanku][linia][brygada][godz_planowa][1]) == 0:
                                     writer.writerow([p_nazwa, nr_przystanku, linia, str(czas2.date()), godz_planowa, "nie zarejestrowano przyjazdu"])
                                 else:

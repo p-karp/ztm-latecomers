@@ -27,3 +27,32 @@ def getBusStopsData() -> dict:
         D[result[i]["values"][0]["value"]][result[i]["values"][1]["value"]] = (result[i]["values"][2]["value"],
                                                    result[i]["values"][4]["value"], result[i]["values"][5]["value"])
     return D
+
+# Konwersja z formatu od Hani na ID
+'''
+nazwy = ['pl.Wilsona 05', 'Czarnieckiego 01', 'Centrum Olimpijskie 02', 'most Grota-Roweckiego 02', 'Żerań FSO 04', 'PKP Toruńska 02', 'Bazyliańska 01']
+
+b = getBusStopsData()
+
+do_wyplucia = "["
+
+for n in nazwy:
+    na = n[:-3]
+    nr = n[-2:]
+    
+    znaleziono = 0
+    
+    for x in b.keys():
+        if(nr in b[x]):
+            if(b[x][nr][0] == na):
+                znaleziono = 1
+                print(f"{n} --- {x}")
+                do_wyplucia += f"('{x}', '{nr}'), "
+    if not znaleziono:
+        print(f"NIE ZNALEZIONO PRZYSTANKU: {n}")
+
+do_wyplucia = do_wyplucia[:-2]
+do_wyplucia += "]"
+
+print(do_wyplucia)    
+'''
