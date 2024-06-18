@@ -58,7 +58,9 @@ def main():
     limit_odl = 0.005 # Około pół kilometra
     
     # Liczba prób na znalezienie nowego minimum (i też na wjechanie do nowego okręgu)
-    limit_prob = 6*10 # 15 minut TODO: zrobić większe potem
+    limit_prob = 6*15 # 15 minut TODO: zrobić większe potem
+    # Liczba prób dla ostatnich przystanków na trasie
+    limit_prob_gr = 6*2 # 2 miniuty
     
     # Do zapisu w csv
     kolumny = ["przystanek", "nr_przystanku", "linia", "kierunek", "dzień", "godzina przyjazdu"]
@@ -96,20 +98,22 @@ def main():
             
             for veh_l in vehicles:
                 for veh_b in vehicles[veh_l]:
+                    zapamietaj = 0
                     kierunki = list(przystanki[veh_l].keys())
                     if veh_b not in tracked_veh[veh_l]:
-                        tracked_veh[veh_l][veh_b] = [0, {kierunki[0]: [[1000, 0, -1] for _ in przystanki[veh_l][kierunki[0]]], kierunki[1]: [[1000, 0, -1] for _ in przystanki[veh_l][kierunki[1]]]}]
+                        tracked_veh[veh_l][veh_b] = {kierunki[0]: [[1000, 0, -1] for _ in przystanki[veh_l][kierunki[0]]], kierunki[1]: [[1000, 0, -1] for _ in przystanki[veh_l][kierunki[1]]]}
                     statusy = {kierunki[0]:-2,kierunki[1]: -2}
-                    for kier in tracked_veh[veh_l][veh_b][1]:
-                        if(tracked_veh[veh_l][veh_b][0] != 0):
-                            if(tracked_veh[veh_l][veh_b][0] != kier):
-                                continue
+                    statusy_cz = {kierunki[0]:[0,0],kierunki[1]: [0,0]}
+                    for kier in tracked_veh[veh_l][veh_b]:
                         status = -1
                         for i, przystanek in enumerate(przystanki[veh_l][kier]):
-                            status = max(status, tracked_veh[veh_l][veh_b][1][kier][i][2])
-                            if(tracked_veh[veh_l][veh_b][1][kier][i][2] == 0):
+                            if(tracked_veh[veh_l][veh_b][kier][i][2] != -1):
+                                status = tracked_veh[veh_l][veh_b][kier][i][2]
+                                statusy_cz[kier] = [i, tracked_veh[veh_l][veh_b][kier][i][1]]
+                            if(tracked_veh[veh_l][veh_b][kier][i][2] == 0):
                                 continue
-                            tracked_veh[veh_l][veh_b][1][kier][i][2] -= 1
+                            if(tracked_veh[veh_l][veh_b][kier][i][2] > 0):
+                                tracked_veh[veh_l][veh_b][kier][i][2] -= 1
                             
                             p_nazwa, p_x, p_y = stops[przystanek[0]][przystanek[1]]
                             p_x, p_y  = float(p_x), float(p_y)
@@ -119,35 +123,52 @@ def main():
                             odl = ((p_x - veh.location.latitude)**2 + (p_y - veh.location.longitude)**2)**(1/2)
                             if(odl <= limit_odl):
                                 #print(f"Bygada {veh.brigade} w okręgu przystanku {p_nazwa} {przystanek[1]}")
-                                if (odl < tracked_veh[veh_l][veh_b][1][kier][i][0]):
-                                    print(f"Bygada {veh.brigade} nowe minimum przystanku {p_nazwa} {przystanek[1]} = {odl}")
-                                    tracked_veh[veh_l][veh_b][1][kier][i][0] = odl
-                                    tracked_veh[veh_l][veh_b][1][kier][i][1] = veh.time
-                                    tracked_veh[veh_l][veh_b][1][kier][i][2] = limit_prob
-                                    if(tracked_veh[veh_l][veh_b][0] == 0):
-                                        if(i > 0):
-                                            if(tracked_veh[veh_l][veh_b][1][kier][i-1][1] != 0):
-                                                if(tracked_veh[veh_l][veh_b][1][kier][i-1][1] < tracked_veh[veh_l][veh_b][1][kier][i][1]):
-                                                    print(f"Określono prawidlowy kierunek! {kier}")
-                                                    tracked_veh[veh_l][veh_b][0] = kier
+                                if (odl < tracked_veh[veh_l][veh_b][kier][i][0]):
+                                    print(f"Brygada {veh.brigade} nowe minimum przystanku {p_nazwa} {przystanek[1]} = {odl}")
+                                    zapamietaj = 1
+                                    tracked_veh[veh_l][veh_b][kier][i][0] = odl
+                                    tracked_veh[veh_l][veh_b][kier][i][1] = veh.time
+                                    # Dla granicznych przystanków zmniejszamy limit prób! (może tylko jeśli przyjechał na poprzedni... 
+                                    # albo wgl nie poprzedni tylko jakiś bardziej z tyłu (bo mogą się nakrywać te dwa końcowe)
+                                    if(i == len(przystanki[veh_l][kier]) - 1):
+                                        if(tracked_veh[veh_l][veh_b][kier][i-3][2] != -1):
+                                            tracked_veh[veh_l][veh_b][kier][i][2] = limit_prob_gr
+                                        else:
+                                            tracked_veh[veh_l][veh_b][kier][i][2] = limit_prob
+                                    else:
+                                        tracked_veh[veh_l][veh_b][kier][i][2] = limit_prob
                         
                         statusy[kier] = status
-                        if(status == 0):
-                            if(tracked_veh[veh_l][veh_b][0] == 0):
-                                if(tracked_veh[veh_l][veh_b][1][kier][len(przystanki[veh_l][kier])-1][2] == 0):
-                                    print(f"Określono prawidlowy kierunek (przypadek graniczny)! {kier}")
-                                    tracked_veh[veh_l][veh_b][0] = kier
-                            else:
-                                print(f"Zapisujemy do pliku brygadę {veh_b}")
-                                for i, przystanek in enumerate(przystanki[veh_l][kier]):
-                                    writer.writerow([stops[przystanek[0]][przystanek[1]][0], przystanek[1], veh_l, kier, str(czas.date()), tracked_veh[veh_l][veh_b][1][kier][i][1]].strftime('%H:%M:%S'))
-                                plik.flush()
-                                status = -2
-                                del tracked_veh[veh_l][veh_b]
-                                break
-                    if(statusy[kierunki[0]] == 0 and statusy[kierunki[1]] == 0):
-                        print("To znaczy że był jakiś solidny błąd!")
-                        # Tutaj resetujemy listę dla danej brygady i zapisujemy błąd (aktualny stan) do pliku
+                        if(zapamietaj):
+                            print(statusy)
+                            print(statusy_cz)
+                    # Jeżeli na ostatnich przystankach nie czekamy na nowe minima
+                    if(statusy[kierunki[0]] <= 0 and statusy[kierunki[1]] <= 0):
+                        
+                        if(statusy[kierunki[0]] == 0 and statusy[kierunki[1]] == 0):
+                            # Sprawdzamy jaki jest prawdziwy kierunek (na podstawie numeru ostatniego przystanku w daną stronę)
+                            if(statusy_cz[kierunki[0]][0] > statusy_cz[kierunki[1]][0]):
+                                kier = kierunki[0]
+                            elif(statusy_cz[kierunki[0]][0] < statusy_cz[kierunki[1]][0]):
+                                kier = kierunki[1]
+                            else: # Jeśli było tyle samo to sprawdzamy na podstawie czasu z ostatniego przystanku w daną stronę)   
+                                if(statusy_cz[kierunki[0]][1] > statusy_cz[kierunki[1]][1]):
+                                    kier = kierunki[0]
+                                else:
+                                    kier = kierunki[1]
+                            print(f"Zapisujemy do pliku brygadę {veh_b}. Prawdziwy kierunek to {kier}")
+                            for i, przystanek in enumerate(przystanki[veh_l][kier]):
+                                if(tracked_veh[veh_l][veh_b][kier][i][1] != 0):
+                                    writer.writerow([stops[przystanek[0]][przystanek[1]][0], przystanek[1], veh_l, kier, str(czas.date()), tracked_veh[veh_l][veh_b][kier][i][1].strftime('%H:%M:%S')])
+                            plik.flush()
+                            status = -2
+                            del tracked_veh[veh_l][veh_b]
+                        
+                        # Jeśli -1 i 0 to daj mu jakiś czas (np. 15 minut i jeśli to się nie zmieni tzn. że zaczęliśmy go łapać jak był już na ostatnim przystanku)
+                        elif(statusy[kierunki[0]] == -1 and statusy[kierunki[1]] == 0): 
+                            print(f"Dzwiny przypadek statusowy dla brygady {veh_b}. Czy tak już zostanie?")
+                        elif(statusy[kierunki[0]] == 0 and statusy[kierunki[1]] == -1): 
+                            print(f"Dzwiny przypadek statusowy dla brygady {veh_b}. Czy tak już zostanie?")
                                             
             #print(tracked_veh)
             #return 0
