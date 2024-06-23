@@ -58,7 +58,7 @@ def statystyki(scheduledArr):
         time2 = datetime.strptime(scheduledArr[i+1], '%H:%M:%S').time()
         time_diff = datetime.combine(datetime.min, time2) - datetime.combine(datetime.min, time1)
         minutes_diff = time_diff.total_seconds() / 60.0
-        scheduledDeltaArr.append(minutes_diff)
+        if(minutes_diff < 30): scheduledDeltaArr.append(minutes_diff)
 
     # Obliczanie interesujących nas statystyk
     mean_value = np.mean(scheduledDeltaArr)
