@@ -31,7 +31,26 @@ def collectTramsData(ztm):
     
 # przystanki: {"LINIA": {"KIERUNEK": [(id_przystanku, nr_przystanku), ... ]}}
 przystanki = {"114": {"UKSW": [('1162', '06'), ('1159', '01'), ('1013', '03'), ('6083', '01'), ('6099', '02'), ('6003', '06'), ('6098', '02')], 
-"Bródno Podgrodzie": [('6003', '05'), ('6099', '01'), ('6096', '02'), ('6083', '02'), ('1013', '04'), ('1159', '02'), ('1158', '01')]}}
+"Bródno Podgrodzie": [('6003', '05'), ('6099', '01'), ('6096', '02'), ('6083', '02'), ('1013', '04'), ('1159', '02'), ('1158', '01')]},
+"500": {"rondo Radosława": [('1143', '01'), ('1142', '01'), ('1077', '01'), ('1006', '01'), ('7019', '04'), ('7081', '02'), ('7091', '04')],
+"Bródno Podgrodzie": [('7091', '03'), ('7081', '01'), ('7019', '03'), ('1006', '02'), ('1077', '02'), ('1142', '02'), ('1143', '02')]},
+"6": {"Metro Młociny": [('1005', '04'), ('1006', '03'), ('1164', '03'), ('7055', '04'), ('7054', '04'), ('7053', '02'), ('7019', '06')],
+"Gocławek": [('7019', '05'), ('7053', '01'), ('7054', '05'), ('7055', '03'), ('1164', '04'), ('1006', '04'), ('1005', '03')]},
+"190": {"Os. Górczewska": [('1053', '01'), ('1052', '01'), ('1003', '03'), ('1163', '01'), ('2870', '02'), ('7047', '02'), ('7099', '10'), ('7085', '02'), ('5002', '02')],
+"CH Marki": [('5002', '01'), ('7085', '01'), ('7099', '09'), ('2870', '01'), ('7047', '01'), ('1163', '02'), ('1003', '04'), ('1052', '02'), ('1053', '02')]},
+"26": {"Metro Młociny" : [('1001', '04'), ('1002', '04'), ('1003', '03'), ('1163', '01'), ('2870', '02'), ('7047', '02'), ('7099', '10'), ('7085', '06'), ('5002', '04')],
+"Wiatraczna": [('5002', '03'), ('7085', '05'), ('7099', '09'), ('2870', '01'), ('7047', '01'), ('1163', '02'), ('1003', '07'), ('1002', '03'), ('1001', '03')]},
+"162": {"EC Siekierki": [('1003', '01'), ('1220', '01'), ('1589', '01'), ('1232', '03'), ('7079', '04'), ('7067', '03'), ('7068', '03')],
+"Pl Hallera": [('7068', '04'), ('7067', '01'), ('7079', '03'), ('1232', '02'), ('1589', '02'), ('1220', '02'), ('1002', '06'), ('1003', '02')]},
+"521": {"Szczęśliwice": [('2008', '03'), ('2134', '01'), ('2131', '01'), ('7041', '02'), ('7013', '06'), ('7002', '02'), ('4001', '04')],
+"Falenica": [('4001', '03'), ('7002', '01'), ('7013', '15'), ('7041', '01'), ('2131', '02'), ('2134', '02'), ('2008', '22')]},
+"9": {"P+R Al. Krakowska": [('2132', '03'), ('2251', '01'), ('2131', '05'), ('7003', '04'), ('7041', '06'), ('7033', '06'), ('7013', '10')],
+"Gocławek": [('7013', '09'), ('7033', '05'), ('7041', '05'), ('7003', '03'), ('2131', '06'), ('2251', '02'), ('2132', '04')]},
+"523": {"Stare Bemowo": [('2100', '01'), ('2098', '01'), ('2097', '01'), ('7071', '02'), ('7037', '06'), ('7009', '02'), ('7006', '02')],
+"PKP Olszynka Grochowska": [('7006', '01'), ('7009', '01'), ('7037', '55'), ('7071', '01'), ('2097', '02'), ('2098', '02'), ('2100', '02')]},
+"148": {"Lotnisko Chopina": [('2146', '01'), ('2147', '01'), ('2148', '09'), ('2205', '03'), ('3308', '01'), ('3323', '01'), ('3324', '01')],
+"Wiatraczna": [('3324', '02'), ('3323', '02'), ('3308', '02'), ('2205', '04'), ('2148', '06'), ('2147', '02'), ('2146', '04')]}
+}
     
 def main():
     # Tworzenie obiektu API
@@ -58,9 +77,9 @@ def main():
     limit_odl = 0.005 # Około pół kilometra
     
     # Liczba prób na znalezienie nowego minimum (i też na wjechanie do nowego okręgu)
-    limit_prob = 6*15 # 15 minut TODO: zrobić większe potem
+    limit_prob = 6*30 # 30 minut
     # Liczba prób dla ostatnich przystanków na trasie
-    limit_prob_gr = 6*2 # 2 miniuty
+    limit_prob_gr = 6*5 # 5 minut
     
     # Do zapisu w csv
     kolumny = ["przystanek", "nr_przystanku", "linia", "kierunek", "dzień", "godzina przyjazdu"]
@@ -124,7 +143,7 @@ def main():
                             if(odl <= limit_odl):
                                 #print(f"Bygada {veh.brigade} w okręgu przystanku {p_nazwa} {przystanek[1]}")
                                 if (odl < tracked_veh[veh_l][veh_b][kier][i][0]):
-                                    print(f"Brygada {veh.brigade} nowe minimum przystanku {p_nazwa} {przystanek[1]} = {odl}")
+                                    print(f"Linia {veh_l} Brygada {veh.brigade} nowe minimum przystanku {p_nazwa} {przystanek[1]} = {odl}")
                                     zapamietaj = 1
                                     tracked_veh[veh_l][veh_b][kier][i][0] = odl
                                     tracked_veh[veh_l][veh_b][kier][i][1] = veh.time
@@ -165,10 +184,27 @@ def main():
                             del tracked_veh[veh_l][veh_b]
                         
                         # Jeśli -1 i 0 to daj mu jakiś czas (np. 15 minut i jeśli to się nie zmieni tzn. że zaczęliśmy go łapać jak był już na ostatnim przystanku)
-                        elif(statusy[kierunki[0]] == -1 and statusy[kierunki[1]] == 0): 
-                            print(f"Dzwiny przypadek statusowy dla brygady {veh_b}. Czy tak już zostanie?")
+                        # Na razie próbuję od razu go zresetować w takim przypadku
+                        elif(statusy[kierunki[0]] == -1 and statusy[kierunki[1]] == 0):
+                            print(f"Dzwiny przypadek statusowy dla brygady {veh_b} linii {veh_l}. Czy tak już zostanie?")
+                            kier = kierunki[1]
+                            print(f"Zapisujemy do pliku brygadę {veh_b}. Prawdziwy kierunek to {kier}")
+                            for i, przystanek in enumerate(przystanki[veh_l][kier]):
+                                if(tracked_veh[veh_l][veh_b][kier][i][1] != 0):
+                                    writer.writerow([stops[przystanek[0]][przystanek[1]][0], przystanek[1], veh_l, kier, str(czas.date()), tracked_veh[veh_l][veh_b][kier][i][1].strftime('%H:%M:%S')])
+                            plik.flush()
+                            status = -2
+                            del tracked_veh[veh_l][veh_b]
                         elif(statusy[kierunki[0]] == 0 and statusy[kierunki[1]] == -1): 
-                            print(f"Dzwiny przypadek statusowy dla brygady {veh_b}. Czy tak już zostanie?")
+                            print(f"Dzwiny przypadek statusowy dla brygady {veh_b} linii {veh_l}. Czy tak już zostanie?")
+                            kier = kierunki[0]
+                            print(f"Zapisujemy do pliku brygadę {veh_b}. Prawdziwy kierunek to {kier}")
+                            for i, przystanek in enumerate(przystanki[veh_l][kier]):
+                                if(tracked_veh[veh_l][veh_b][kier][i][1] != 0):
+                                    writer.writerow([stops[przystanek[0]][przystanek[1]][0], przystanek[1], veh_l, kier, str(czas.date()), tracked_veh[veh_l][veh_b][kier][i][1].strftime('%H:%M:%S')])
+                            plik.flush()
+                            status = -2
+                            del tracked_veh[veh_l][veh_b]
                                             
             #print(tracked_veh)
             #return 0

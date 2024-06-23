@@ -29,8 +29,10 @@ def getBusStopsData() -> dict:
     return D
 
 # Konwersja z formatu od Hani na ID
+
 '''
-nazwy = ['pl.Wilsona 05', 'Czarnieckiego 01', 'Centrum Olimpijskie 02', 'most Grota-Roweckiego 02', 'Żerań FSO 04', 'PKP Toruńska 02', 'Bazyliańska 01']
+nazwy = ['Ogrody Działkowe Czerniaków 02', 'Małe Siekierki 02', 'Siekierki-Sanktuarium 02', 'most Siekierkowski 04',
+ 'Gocław 06', 'Horbaczewskiego 02', 'Bora-Komorowskiego 04']
 
 b = getBusStopsData()
 
@@ -54,5 +56,5 @@ for n in nazwy:
 do_wyplucia = do_wyplucia[:-2]
 do_wyplucia += "]"
 
-print(do_wyplucia)    
+print(do_wyplucia)
 '''
