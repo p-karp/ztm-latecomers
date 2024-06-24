@@ -1,0 +1,813 @@
+przystanek,nr_przystanku,linia,kierunek,dzień,godzina przyjazdu
+Szwedzka,02,190,CH Marki,2024-06-24,19:57:55
+Szwedzka,02,190,CH Marki,2024-06-24,21:40:30
+Rzeszotarskiej,01,190,Os. Górczewska,2024-06-24,21:40:40
+Dw.Wileński,03,190,Os. Górczewska,2024-06-24,21:41:41
+Park Praski,01,190,Os. Górczewska,2024-06-24,21:42:49
+Stare Miasto,02,190,Os. Górczewska,2024-06-24,21:44:57
+Metro Ratusz-Arsenał,10,190,Os. Górczewska,2024-06-24,21:46:56
+Kino Femina,02,190,Os. Górczewska,2024-06-24,21:49:12
+Wola-Ratusz,02,190,Os. Górczewska,2024-06-24,21:50:56
+most Grota-Roweckiego,01,114,UKSW,2024-06-24,21:40:30
+Czarnieckiego,02,114,UKSW,2024-06-24,21:44:29
+pl.Wilsona,06,114,UKSW,2024-06-24,21:47:46
+Suzina,02,114,UKSW,2024-06-24,21:48:47
+Bazyliańska,01,114,Bródno Podgrodzie,2024-06-24,21:40:29
+rondo Waszyngtona,05,9,P+R Al. Krakowska,2024-06-24,21:40:19
+most Poniatowskiego,04,9,P+R Al. Krakowska,2024-06-24,21:42:20
+Muzeum Narodowe,06,9,P+R Al. Krakowska,2024-06-24,21:44:51
+Krucza,06,9,P+R Al. Krakowska,2024-06-24,21:46:12
+Centrum,10,9,P+R Al. Krakowska,2024-06-24,21:47:38
+Sierakowskiego,01,162,EC Siekierki,2024-06-24,21:41:09
+os.Panieńska,01,162,EC Siekierki,2024-06-24,21:40:43
+most Świętokrzyski,03,162,EC Siekierki,2024-06-24,21:42:19
+Metro Centrum Nauki Kopernik,04,162,EC Siekierki,2024-06-24,21:43:57
+Topiel,03,162,EC Siekierki,2024-06-24,21:46:09
+PKP Powiśle,03,162,EC Siekierki,2024-06-24,21:47:13
+Rozbrat,02,523,Stare Bemowo,2024-06-24,21:41:10
+pl.Na Rozdrożu,06,523,Stare Bemowo,2024-06-24,21:43:03
+Marszałkowska,02,523,Stare Bemowo,2024-06-24,21:43:48
+Metro Politechnika,02,523,Stare Bemowo,2024-06-24,21:46:09
+Centrum,09,9,Gocławek,2024-06-24,21:40:38
+Krucza,05,9,Gocławek,2024-06-24,21:41:34
+Muzeum Narodowe,05,9,Gocławek,2024-06-24,21:42:22
+most Poniatowskiego,03,9,Gocławek,2024-06-24,21:45:11
+rondo Waszyngtona,06,9,Gocławek,2024-06-24,21:47:07
+Berezyńska,02,9,Gocławek,2024-06-24,21:48:35
+Park Skaryszewski,04,9,Gocławek,2024-06-24,21:50:05
+Kołowa,01,500,rondo Radosława,2024-06-24,21:41:39
+Rogowska,01,500,rondo Radosława,2024-06-24,21:42:08
+rondo Żaba,01,500,rondo Radosława,2024-06-24,21:42:48
+rondo Starzyńskiego,01,500,rondo Radosława,2024-06-24,21:45:01
+Dw.Gdański,04,500,rondo Radosława,2024-06-24,21:48:05
+Baseny Inflancka,02,500,rondo Radosława,2024-06-24,21:49:52
+"rondo ""Radosława""",04,500,rondo Radosława,2024-06-24,21:53:07
+Muzeum Narodowe,02,521,Szczęśliwice,2024-06-24,21:41:33
+Centrum,06,521,Szczęśliwice,2024-06-24,21:45:33
+Dw.Centralny,02,521,Szczęśliwice,2024-06-24,21:47:12
+pl.Zawiszy,04,521,Szczęśliwice,2024-06-24,21:49:59
+pl.Hallera,04,6,Metro Młociny,2024-06-24,21:41:21
+rondo Starzyńskiego,03,6,Metro Młociny,2024-06-24,21:43:02
+Wybrzeże Helskie,03,6,Metro Młociny,2024-06-24,21:44:14
+most Gdański,04,6,Metro Młociny,2024-06-24,21:45:57
+Park Traugutta,04,6,Metro Młociny,2024-06-24,21:46:48
+KS Polonia,02,6,Metro Młociny,2024-06-24,21:49:05
+Dw.Gdański,06,6,Metro Młociny,2024-06-24,21:50:07
+PKP Powiśle,04,162,Pl Hallera,2024-06-24,21:41:46
+Topiel,01,162,Pl Hallera,2024-06-24,21:40:29
+Metro Centrum Nauki Kopernik,03,162,Pl Hallera,2024-06-24,21:42:33
+most Świętokrzyski,02,162,Pl Hallera,2024-06-24,21:46:28
+os.Panieńska,02,162,Pl Hallera,2024-06-24,21:48:28
+Sierakowskiego,02,162,Pl Hallera,2024-06-24,21:50:48
+Ząbkowska,06,162,Pl Hallera,2024-06-24,21:52:51
+rondo Starzyńskiego,04,6,Gocławek,2024-06-24,21:40:20
+pl.Hallera,03,6,Gocławek,2024-06-24,21:41:41
+Saska,02,523,PKP Olszynka Grochowska,2024-06-24,21:40:31
+Międzynarodowa,02,523,PKP Olszynka Grochowska,2024-06-24,21:40:57
+Przyczółek Grochowski,02,523,PKP Olszynka Grochowska,2024-06-24,21:42:06
+Park Praski,02,26,Wiatraczna,2024-06-24,21:41:23
+Dw.Wileński,07,26,Wiatraczna,2024-06-24,21:42:34
+Ząbkowska,03,26,Wiatraczna,2024-06-24,21:43:49
+Kijowska,03,26,Wiatraczna,2024-06-24,21:46:15
+Metro Ratusz-Arsenał,10,26,Metro Młociny,2024-06-24,21:40:22
+Kino Femina,06,26,Metro Młociny,2024-06-24,21:41:18
+Wola-Ratusz,04,26,Metro Młociny,2024-06-24,21:42:49
+Siekierki-Sanktuarium,01,148,Lotnisko Chopina,2024-06-24,21:40:30
+Małe Siekierki,01,148,Lotnisko Chopina,2024-06-24,21:42:38
+Ogrody Działkowe Czerniaków,01,148,Lotnisko Chopina,2024-06-24,21:43:12
+Dw.Wileński,07,26,Wiatraczna,2024-06-24,21:40:21
+Ząbkowska,03,26,Wiatraczna,2024-06-24,21:41:38
+Kijowska,03,26,Wiatraczna,2024-06-24,21:43:33
+Park Skaryszewski,03,9,P+R Al. Krakowska,2024-06-24,21:43:37
+Berezyńska,01,9,P+R Al. Krakowska,2024-06-24,21:44:57
+rondo Waszyngtona,05,9,P+R Al. Krakowska,2024-06-24,21:46:48
+most Poniatowskiego,04,9,P+R Al. Krakowska,2024-06-24,21:48:34
+Muzeum Narodowe,06,9,P+R Al. Krakowska,2024-06-24,21:51:00
+Krucza,06,9,P+R Al. Krakowska,2024-06-24,21:52:06
+Centrum,10,9,P+R Al. Krakowska,2024-06-24,21:53:06
+Wola-Ratusz,01,190,CH Marki,2024-06-24,21:43:51
+Kino Femina,01,190,CH Marki,2024-06-24,21:46:11
+Metro Ratusz-Arsenał,09,190,CH Marki,2024-06-24,21:49:11
+Stare Miasto,01,190,CH Marki,2024-06-24,21:50:51
+Park Praski,02,190,CH Marki,2024-06-24,21:53:21
+Dw.Wileński,04,190,CH Marki,2024-06-24,21:56:11
+Rzeszotarskiej,02,190,CH Marki,2024-06-24,21:57:11
+Szwedzka,02,190,CH Marki,2024-06-24,21:58:11
+rondo Żaba,02,500,Bródno Podgrodzie,2024-06-24,21:42:15
+Rogowska,02,500,Bródno Podgrodzie,2024-06-24,21:43:00
+Kołowa,02,500,Bródno Podgrodzie,2024-06-24,21:43:55
+Dw.Wileński,01,162,EC Siekierki,2024-06-24,21:44:55
+"rondo ""Radosława""",03,500,Bródno Podgrodzie,2024-06-24,21:47:43
+Baseny Inflancka,01,500,Bródno Podgrodzie,2024-06-24,21:48:37
+Dw.Gdański,03,500,Bródno Podgrodzie,2024-06-24,21:49:54
+rondo Starzyńskiego,02,500,Bródno Podgrodzie,2024-06-24,21:53:01
+rondo Żaba,02,500,Bródno Podgrodzie,2024-06-24,21:56:39
+Rogowska,02,500,Bródno Podgrodzie,2024-06-24,21:57:25
+Kołowa,02,500,Bródno Podgrodzie,2024-06-24,21:59:07
+Szwedzka,02,190,CH Marki,2024-06-24,21:46:21
+Centrum,09,9,Gocławek,2024-06-24,21:48:04
+Krucza,05,9,Gocławek,2024-06-24,21:49:06
+Muzeum Narodowe,05,9,Gocławek,2024-06-24,21:50:27
+most Poniatowskiego,03,9,Gocławek,2024-06-24,21:53:20
+rondo Waszyngtona,06,9,Gocławek,2024-06-24,21:55:12
+Berezyńska,02,9,Gocławek,2024-06-24,21:57:45
+Park Skaryszewski,04,9,Gocławek,2024-06-24,21:59:17
+Metro Politechnika,01,523,PKP Olszynka Grochowska,2024-06-24,21:49:35
+Marszałkowska,01,523,PKP Olszynka Grochowska,2024-06-24,21:52:04
+pl.Na Rozdrożu,55,523,PKP Olszynka Grochowska,2024-06-24,21:53:03
+Rozbrat,01,523,PKP Olszynka Grochowska,2024-06-24,21:54:13
+Saska,02,523,PKP Olszynka Grochowska,2024-06-24,21:57:16
+Międzynarodowa,02,523,PKP Olszynka Grochowska,2024-06-24,21:58:01
+Przyczółek Grochowski,02,523,PKP Olszynka Grochowska,2024-06-24,21:59:22
+Wola-Ratusz,03,26,Wiatraczna,2024-06-24,21:48:02
+Kino Femina,05,26,Wiatraczna,2024-06-24,21:50:35
+Metro Ratusz-Arsenał,09,26,Wiatraczna,2024-06-24,21:53:03
+Stare Miasto,01,26,Wiatraczna,2024-06-24,21:55:20
+Park Praski,02,26,Wiatraczna,2024-06-24,21:57:43
+Dw.Wileński,07,26,Wiatraczna,2024-06-24,21:59:34
+Ząbkowska,03,26,Wiatraczna,2024-06-24,22:01:32
+Kijowska,03,26,Wiatraczna,2024-06-24,22:03:23
+Kijowska,04,26,Metro Młociny,2024-06-24,21:51:20
+Ząbkowska,04,26,Metro Młociny,2024-06-24,21:52:21
+Dw.Wileński,03,26,Metro Młociny,2024-06-24,21:55:18
+Park Praski,01,26,Metro Młociny,2024-06-24,21:56:35
+Stare Miasto,02,26,Metro Młociny,2024-06-24,21:58:28
+Metro Ratusz-Arsenał,10,26,Metro Młociny,2024-06-24,22:00:34
+Kino Femina,06,26,Metro Młociny,2024-06-24,22:02:57
+Wola-Ratusz,04,26,Metro Młociny,2024-06-24,22:04:39
+Dw.Wileński,01,162,EC Siekierki,2024-06-24,21:51:07
+Sierakowskiego,01,162,EC Siekierki,2024-06-24,21:53:04
+os.Panieńska,01,162,EC Siekierki,2024-06-24,21:54:34
+most Świętokrzyski,03,162,EC Siekierki,2024-06-24,21:56:18
+Metro Centrum Nauki Kopernik,04,162,EC Siekierki,2024-06-24,21:58:14
+Topiel,03,162,EC Siekierki,2024-06-24,21:59:59
+PKP Powiśle,03,162,EC Siekierki,2024-06-24,22:00:29
+Dw.Gdański,05,6,Gocławek,2024-06-24,21:51:20
+KS Polonia,01,6,Gocławek,2024-06-24,21:52:20
+Park Traugutta,05,6,Gocławek,2024-06-24,21:53:51
+most Gdański,03,6,Gocławek,2024-06-24,21:54:56
+Wybrzeże Helskie,04,6,Gocławek,2024-06-24,21:56:22
+rondo Starzyńskiego,04,6,Gocławek,2024-06-24,21:57:23
+pl.Hallera,03,6,Gocławek,2024-06-24,21:59:09
+Przyczółek Grochowski,01,523,Stare Bemowo,2024-06-24,21:51:31
+Międzynarodowa,01,523,Stare Bemowo,2024-06-24,21:53:26
+Saska,01,523,Stare Bemowo,2024-06-24,21:54:33
+Rozbrat,02,523,Stare Bemowo,2024-06-24,21:57:13
+pl.Na Rozdrożu,06,523,Stare Bemowo,2024-06-24,21:58:47
+Marszałkowska,02,523,Stare Bemowo,2024-06-24,21:59:33
+Metro Politechnika,02,523,Stare Bemowo,2024-06-24,22:00:28
+pl.Wilsona,05,114,Bródno Podgrodzie,2024-06-24,21:53:13
+Czarnieckiego,01,114,Bródno Podgrodzie,2024-06-24,21:53:43
+Centrum Olimpijskie,02,114,Bródno Podgrodzie,2024-06-24,21:54:43
+most Grota-Roweckiego,02,114,Bródno Podgrodzie,2024-06-24,21:56:13
+Żerań FSO,04,114,Bródno Podgrodzie,2024-06-24,21:57:43
+PKP Toruńska,02,114,Bródno Podgrodzie,2024-06-24,21:58:44
+Bazyliańska,01,114,Bródno Podgrodzie,2024-06-24,21:59:43
+Park Skaryszewski,03,9,P+R Al. Krakowska,2024-06-24,21:56:39
+Berezyńska,01,9,P+R Al. Krakowska,2024-06-24,21:58:05
+rondo Waszyngtona,05,9,P+R Al. Krakowska,2024-06-24,22:00:01
+most Poniatowskiego,04,9,P+R Al. Krakowska,2024-06-24,22:02:08
+Muzeum Narodowe,06,9,P+R Al. Krakowska,2024-06-24,22:04:24
+Krucza,06,9,P+R Al. Krakowska,2024-06-24,22:06:45
+Centrum,10,9,P+R Al. Krakowska,2024-06-24,22:07:46
+Szwedzka,02,190,CH Marki,2024-06-24,19:57:55
+Pelcowizna,06,114,UKSW,2024-06-24,21:59:05
+PKP Toruńska,01,114,UKSW,2024-06-24,22:00:07
+Żerań FSO,03,114,UKSW,2024-06-24,22:01:20
+most Grota-Roweckiego,01,114,UKSW,2024-06-24,22:02:53
+Czarnieckiego,02,114,UKSW,2024-06-24,22:05:38
+pl.Wilsona,06,114,UKSW,2024-06-24,22:08:37
+Suzina,02,114,UKSW,2024-06-24,22:09:33
+rondo Starzyńskiego,02,500,Bródno Podgrodzie,2024-06-24,22:00:22
+rondo Żaba,02,500,Bródno Podgrodzie,2024-06-24,21:57:51
+Rogowska,02,500,Bródno Podgrodzie,2024-06-24,21:57:07
+Kołowa,02,500,Bródno Podgrodzie,2024-06-24,21:56:06
+"rondo ""Radosława""",04,500,rondo Radosława,2024-06-24,21:58:17
+Park Praski,02,190,CH Marki,2024-06-24,21:59:10
+Dw.Wileński,04,190,CH Marki,2024-06-24,21:57:14
+Rzeszotarskiej,02,190,CH Marki,2024-06-24,21:55:20
+Szwedzka,02,190,CH Marki,2024-06-24,21:54:45
+rondo Waszyngtona,01,521,Szczęśliwice,2024-06-24,21:59:08
+Muzeum Narodowe,02,521,Szczęśliwice,2024-06-24,21:55:31
+Centrum,06,521,Szczęśliwice,2024-06-24,21:53:43
+Dw.Centralny,02,521,Szczęśliwice,2024-06-24,21:51:37
+pl.Zawiszy,04,521,Szczęśliwice,2024-06-24,21:49:25
+Centrum,09,9,Gocławek,2024-06-24,21:58:40
+Krucza,05,9,Gocławek,2024-06-24,21:59:56
+Muzeum Narodowe,05,9,Gocławek,2024-06-24,22:00:36
+most Poniatowskiego,03,9,Gocławek,2024-06-24,22:03:24
+rondo Waszyngtona,06,9,Gocławek,2024-06-24,22:05:58
+Berezyńska,02,9,Gocławek,2024-06-24,22:08:30
+Park Skaryszewski,04,9,Gocławek,2024-06-24,22:09:47
+Sierakowskiego,01,162,EC Siekierki,2024-06-24,22:00:22
+os.Panieńska,01,162,EC Siekierki,2024-06-24,22:00:22
+most Świętokrzyski,03,162,EC Siekierki,2024-06-24,21:57:38
+Metro Centrum Nauki Kopernik,04,162,EC Siekierki,2024-06-24,21:56:18
+Topiel,03,162,EC Siekierki,2024-06-24,21:54:58
+PKP Powiśle,03,162,EC Siekierki,2024-06-24,21:53:54
+Gocław,06,148,Wiatraczna,2024-06-24,22:00:09
+Horbaczewskiego,02,148,Wiatraczna,2024-06-24,21:59:31
+Bora-Komorowskiego,04,148,Wiatraczna,2024-06-24,21:58:00
+Horbaczewskiego,01,148,Lotnisko Chopina,2024-06-24,22:00:29
+Gocław,09,148,Lotnisko Chopina,2024-06-24,21:58:49
+most Siekierkowski,03,148,Lotnisko Chopina,2024-06-24,21:57:59
+Siekierki-Sanktuarium,01,148,Lotnisko Chopina,2024-06-24,21:55:42
+Małe Siekierki,01,148,Lotnisko Chopina,2024-06-24,21:53:32
+Ogrody Działkowe Czerniaków,01,148,Lotnisko Chopina,2024-06-24,21:52:27
+Metro Ratusz-Arsenał,10,190,Os. Górczewska,2024-06-24,22:00:30
+Kino Femina,02,190,Os. Górczewska,2024-06-24,21:58:12
+Wola-Ratusz,02,190,Os. Górczewska,2024-06-24,21:55:42
+pl.Hallera,04,6,Metro Młociny,2024-06-24,22:01:54
+rondo Starzyńskiego,03,6,Metro Młociny,2024-06-24,22:03:34
+Wybrzeże Helskie,03,6,Metro Młociny,2024-06-24,22:04:37
+most Gdański,04,6,Metro Młociny,2024-06-24,22:05:55
+Park Traugutta,04,6,Metro Młociny,2024-06-24,22:06:55
+KS Polonia,02,6,Metro Młociny,2024-06-24,22:08:26
+Dw.Gdański,06,6,Metro Młociny,2024-06-24,22:09:27
+Szwedzka,02,190,CH Marki,2024-06-24,22:00:30
+Park Skaryszewski,03,9,P+R Al. Krakowska,2024-06-24,22:04:55
+Berezyńska,01,9,P+R Al. Krakowska,2024-06-24,22:07:22
+rondo Waszyngtona,05,9,P+R Al. Krakowska,2024-06-24,22:09:03
+most Poniatowskiego,04,9,P+R Al. Krakowska,2024-06-24,22:11:44
+Muzeum Narodowe,06,9,P+R Al. Krakowska,2024-06-24,22:14:36
+Krucza,06,9,P+R Al. Krakowska,2024-06-24,22:15:41
+Centrum,10,9,P+R Al. Krakowska,2024-06-24,22:17:17
+Kijowska,03,26,Wiatraczna,2024-06-24,22:05:41
+Centrum,09,9,Gocławek,2024-06-24,22:05:40
+Krucza,05,9,Gocławek,2024-06-24,22:07:06
+Muzeum Narodowe,05,9,Gocławek,2024-06-24,22:07:57
+most Poniatowskiego,03,9,Gocławek,2024-06-24,22:10:43
+rondo Waszyngtona,06,9,Gocławek,2024-06-24,22:13:14
+Berezyńska,02,9,Gocławek,2024-06-24,22:15:00
+Park Skaryszewski,04,9,Gocławek,2024-06-24,22:16:21
+Metro Centrum Nauki Kopernik,04,162,EC Siekierki,2024-06-24,22:00:29
+Topiel,03,162,EC Siekierki,2024-06-24,22:00:29
+PKP Powiśle,03,162,EC Siekierki,2024-06-24,22:00:29
+Marszałkowska,02,523,Stare Bemowo,2024-06-24,22:00:28
+Metro Politechnika,02,523,Stare Bemowo,2024-06-24,22:00:28
+Wola-Ratusz,03,26,Wiatraczna,2024-06-24,22:08:49
+Kino Femina,05,26,Wiatraczna,2024-06-24,22:10:15
+Metro Ratusz-Arsenał,09,26,Wiatraczna,2024-06-24,22:13:12
+Stare Miasto,01,26,Wiatraczna,2024-06-24,22:14:57
+Park Praski,02,26,Wiatraczna,2024-06-24,22:17:44
+Dw.Wileński,07,26,Wiatraczna,2024-06-24,22:19:15
+Ząbkowska,03,26,Wiatraczna,2024-06-24,22:21:36
+Kijowska,03,26,Wiatraczna,2024-06-24,22:23:07
+Kijowska,04,26,Metro Młociny,2024-06-24,22:11:27
+Ząbkowska,04,26,Metro Młociny,2024-06-24,22:12:28
+Dw.Wileński,03,26,Metro Młociny,2024-06-24,22:15:16
+Park Praski,01,26,Metro Młociny,2024-06-24,22:16:33
+Stare Miasto,02,26,Metro Młociny,2024-06-24,22:18:48
+Metro Ratusz-Arsenał,10,26,Metro Młociny,2024-06-24,22:20:43
+Kino Femina,06,26,Metro Młociny,2024-06-24,22:23:06
+Wola-Ratusz,04,26,Metro Młociny,2024-06-24,22:25:49
+Park Praski,02,26,Wiatraczna,2024-06-24,22:12:50
+Dw.Wileński,07,26,Wiatraczna,2024-06-24,22:10:13
+Ząbkowska,03,26,Wiatraczna,2024-06-24,22:09:08
+Kijowska,03,26,Wiatraczna,2024-06-24,22:07:42
+Dw.Gdański,05,6,Gocławek,2024-06-24,22:13:56
+KS Polonia,01,6,Gocławek,2024-06-24,22:15:22
+Park Traugutta,05,6,Gocławek,2024-06-24,22:16:38
+most Gdański,03,6,Gocławek,2024-06-24,22:17:28
+Wybrzeże Helskie,04,6,Gocławek,2024-06-24,22:19:04
+rondo Starzyńskiego,04,6,Gocławek,2024-06-24,22:19:50
+pl.Hallera,03,6,Gocławek,2024-06-24,22:22:00
+Szwedzka,02,190,CH Marki,2024-06-24,19:57:55
+rondo Starzyńskiego,02,500,Bródno Podgrodzie,2024-06-24,22:00:22
+"rondo ""Radosława""",04,500,rondo Radosława,2024-06-24,22:00:22
+rondo Waszyngtona,02,521,Falenica,2024-06-24,22:00:17
+Pelcowizna,06,114,UKSW,2024-06-24,22:17:27
+PKP Toruńska,01,114,UKSW,2024-06-24,22:18:47
+Żerań FSO,03,114,UKSW,2024-06-24,22:19:45
+most Grota-Roweckiego,01,114,UKSW,2024-06-24,22:21:38
+Czarnieckiego,02,114,UKSW,2024-06-24,22:24:36
+pl.Wilsona,06,114,UKSW,2024-06-24,22:26:52
+Suzina,02,114,UKSW,2024-06-24,22:27:42
+Park Skaryszewski,03,9,P+R Al. Krakowska,2024-06-24,22:16:38
+Berezyńska,01,9,P+R Al. Krakowska,2024-06-24,22:18:05
+rondo Waszyngtona,05,9,P+R Al. Krakowska,2024-06-24,22:19:49
+most Poniatowskiego,04,9,P+R Al. Krakowska,2024-06-24,22:21:57
+Muzeum Narodowe,06,9,P+R Al. Krakowska,2024-06-24,22:24:20
+Krucza,06,9,P+R Al. Krakowska,2024-06-24,22:25:12
+Centrum,10,9,P+R Al. Krakowska,2024-06-24,22:26:03
+os.Panieńska,02,162,Pl Hallera,2024-06-24,22:00:22
+Sierakowskiego,02,162,Pl Hallera,2024-06-24,22:00:22
+Gocław,06,148,Wiatraczna,2024-06-24,22:00:30
+Horbaczewskiego,02,148,Wiatraczna,2024-06-24,22:00:30
+Gocław,06,148,Wiatraczna,2024-06-24,22:00:29
+Metro Ratusz-Arsenał,10,190,Os. Górczewska,2024-06-24,22:00:30
+pl.Wilsona,05,114,Bródno Podgrodzie,2024-06-24,22:18:35
+Czarnieckiego,01,114,Bródno Podgrodzie,2024-06-24,22:19:35
+Centrum Olimpijskie,02,114,Bródno Podgrodzie,2024-06-24,22:20:35
+most Grota-Roweckiego,02,114,Bródno Podgrodzie,2024-06-24,22:22:33
+Żerań FSO,04,114,Bródno Podgrodzie,2024-06-24,22:24:33
+PKP Toruńska,02,114,Bródno Podgrodzie,2024-06-24,22:26:06
+Bazyliańska,01,114,Bródno Podgrodzie,2024-06-24,22:27:06
+Szwedzka,02,190,CH Marki,2024-06-24,22:00:30
+Centrum,09,9,Gocławek,2024-06-24,22:20:42
+Krucza,05,9,Gocławek,2024-06-24,22:21:58
+Muzeum Narodowe,05,9,Gocławek,2024-06-24,22:22:56
+most Poniatowskiego,03,9,Gocławek,2024-06-24,22:25:28
+rondo Waszyngtona,06,9,Gocławek,2024-06-24,22:27:12
+Berezyńska,02,9,Gocławek,2024-06-24,22:28:32
+Park Skaryszewski,04,9,Gocławek,2024-06-24,22:29:59
+Park Skaryszewski,03,9,P+R Al. Krakowska,2024-06-24,22:24:53
+Berezyńska,01,9,P+R Al. Krakowska,2024-06-24,22:26:04
+rondo Waszyngtona,05,9,P+R Al. Krakowska,2024-06-24,22:27:45
+most Poniatowskiego,04,9,P+R Al. Krakowska,2024-06-24,22:29:56
+Muzeum Narodowe,06,9,P+R Al. Krakowska,2024-06-24,22:32:22
+Krucza,06,9,P+R Al. Krakowska,2024-06-24,22:33:53
+Centrum,10,9,P+R Al. Krakowska,2024-06-24,22:34:49
+pl.Hallera,04,6,Metro Młociny,2024-06-24,22:23:52
+rondo Starzyńskiego,03,6,Metro Młociny,2024-06-24,22:25:52
+Wybrzeże Helskie,03,6,Metro Młociny,2024-06-24,22:27:01
+most Gdański,04,6,Metro Młociny,2024-06-24,22:27:59
+Park Traugutta,04,6,Metro Młociny,2024-06-24,22:29:38
+KS Polonia,02,6,Metro Młociny,2024-06-24,22:31:33
+Dw.Gdański,06,6,Metro Młociny,2024-06-24,22:32:32
+Metro Centrum Nauki Kopernik,04,162,EC Siekierki,2024-06-24,22:00:29
+Topiel,03,162,EC Siekierki,2024-06-24,22:00:29
+PKP Powiśle,03,162,EC Siekierki,2024-06-24,22:00:29
+Marszałkowska,02,523,Stare Bemowo,2024-06-24,22:00:28
+Metro Politechnika,02,523,Stare Bemowo,2024-06-24,22:00:28
+Kijowska,04,26,Metro Młociny,2024-06-24,22:29:35
+Ząbkowska,04,26,Metro Młociny,2024-06-24,22:30:41
+Dw.Wileński,03,26,Metro Młociny,2024-06-24,22:33:12
+Park Praski,01,26,Metro Młociny,2024-06-24,22:34:08
+Stare Miasto,02,26,Metro Młociny,2024-06-24,22:36:44
+Metro Ratusz-Arsenał,10,26,Metro Młociny,2024-06-24,22:38:30
+Kino Femina,06,26,Metro Młociny,2024-06-24,22:39:56
+Wola-Ratusz,04,26,Metro Młociny,2024-06-24,22:42:07
+Centrum,09,9,Gocławek,2024-06-24,22:27:36
+Krucza,05,9,Gocławek,2024-06-24,22:29:04
+Muzeum Narodowe,05,9,Gocławek,2024-06-24,22:29:57
+most Poniatowskiego,03,9,Gocławek,2024-06-24,22:32:48
+rondo Waszyngtona,06,9,Gocławek,2024-06-24,22:34:50
+Berezyńska,02,9,Gocławek,2024-06-24,22:36:07
+Park Skaryszewski,04,9,Gocławek,2024-06-24,22:37:32
+Wola-Ratusz,03,26,Wiatraczna,2024-06-24,22:28:18
+Kino Femina,05,26,Wiatraczna,2024-06-24,22:29:56
+Metro Ratusz-Arsenał,09,26,Wiatraczna,2024-06-24,22:33:10
+Stare Miasto,01,26,Wiatraczna,2024-06-24,22:34:46
+Park Praski,02,26,Wiatraczna,2024-06-24,22:37:14
+Dw.Wileński,07,26,Wiatraczna,2024-06-24,22:39:36
+Ząbkowska,03,26,Wiatraczna,2024-06-24,22:41:29
+Kijowska,03,26,Wiatraczna,2024-06-24,22:43:18
+Szwedzka,02,190,CH Marki,2024-06-24,19:57:55
+rondo Starzyńskiego,02,500,Bródno Podgrodzie,2024-06-24,22:00:22
+"rondo ""Radosława""",04,500,rondo Radosława,2024-06-24,22:00:22
+rondo Waszyngtona,02,521,Falenica,2024-06-24,22:00:17
+os.Panieńska,02,162,Pl Hallera,2024-06-24,22:00:22
+Sierakowskiego,02,162,Pl Hallera,2024-06-24,22:00:22
+Gocław,06,148,Wiatraczna,2024-06-24,22:00:30
+Horbaczewskiego,02,148,Wiatraczna,2024-06-24,22:00:30
+Gocław,06,148,Wiatraczna,2024-06-24,22:00:29
+Metro Ratusz-Arsenał,10,190,Os. Górczewska,2024-06-24,22:00:30
+Dw.Gdański,05,6,Gocławek,2024-06-24,22:36:07
+KS Polonia,01,6,Gocławek,2024-06-24,22:37:38
+Park Traugutta,05,6,Gocławek,2024-06-24,22:39:00
+most Gdański,03,6,Gocławek,2024-06-24,22:40:03
+Wybrzeże Helskie,04,6,Gocławek,2024-06-24,22:41:35
+rondo Starzyńskiego,04,6,Gocławek,2024-06-24,22:42:38
+pl.Hallera,03,6,Gocławek,2024-06-24,22:44:51
+Szwedzka,02,190,CH Marki,2024-06-24,22:00:30
+Pelcowizna,06,114,UKSW,2024-06-24,22:37:16
+PKP Toruńska,01,114,UKSW,2024-06-24,22:38:16
+Żerań FSO,03,114,UKSW,2024-06-24,22:39:46
+most Grota-Roweckiego,01,114,UKSW,2024-06-24,22:41:15
+Czarnieckiego,02,114,UKSW,2024-06-24,22:43:16
+pl.Wilsona,06,114,UKSW,2024-06-24,22:47:46
+Suzina,02,114,UKSW,2024-06-24,22:48:46
+Centrum,09,9,Gocławek,2024-06-24,22:39:14
+Krucza,05,9,Gocławek,2024-06-24,22:40:20
+Muzeum Narodowe,05,9,Gocławek,2024-06-24,22:40:55
+most Poniatowskiego,03,9,Gocławek,2024-06-24,22:43:47
+rondo Waszyngtona,06,9,Gocławek,2024-06-24,22:45:34
+Berezyńska,02,9,Gocławek,2024-06-24,22:47:16
+Park Skaryszewski,04,9,Gocławek,2024-06-24,22:48:27
+Metro Centrum Nauki Kopernik,04,162,EC Siekierki,2024-06-24,22:00:29
+Topiel,03,162,EC Siekierki,2024-06-24,22:00:29
+PKP Powiśle,03,162,EC Siekierki,2024-06-24,22:00:29
+Marszałkowska,02,523,Stare Bemowo,2024-06-24,22:00:28
+Metro Politechnika,02,523,Stare Bemowo,2024-06-24,22:00:28
+pl.Hallera,04,6,Metro Młociny,2024-06-24,22:41:29
+rondo Starzyńskiego,03,6,Metro Młociny,2024-06-24,22:43:20
+Wybrzeże Helskie,03,6,Metro Młociny,2024-06-24,22:44:50
+most Gdański,04,6,Metro Młociny,2024-06-24,22:46:06
+Park Traugutta,04,6,Metro Młociny,2024-06-24,22:48:12
+KS Polonia,02,6,Metro Młociny,2024-06-24,22:49:33
+Dw.Gdański,06,6,Metro Młociny,2024-06-24,22:50:33
+pl.Wilsona,05,114,Bródno Podgrodzie,2024-06-24,22:46:40
+Czarnieckiego,01,114,Bródno Podgrodzie,2024-06-24,22:47:40
+Centrum Olimpijskie,02,114,Bródno Podgrodzie,2024-06-24,22:48:40
+most Grota-Roweckiego,02,114,Bródno Podgrodzie,2024-06-24,22:50:40
+Żerań FSO,04,114,Bródno Podgrodzie,2024-06-24,22:52:40
+PKP Toruńska,02,114,Bródno Podgrodzie,2024-06-24,22:53:40
+Bazyliańska,01,114,Bródno Podgrodzie,2024-06-24,22:54:40
+Park Skaryszewski,03,9,P+R Al. Krakowska,2024-06-24,22:44:56
+Berezyńska,01,9,P+R Al. Krakowska,2024-06-24,22:46:04
+rondo Waszyngtona,05,9,P+R Al. Krakowska,2024-06-24,22:48:06
+most Poniatowskiego,04,9,P+R Al. Krakowska,2024-06-24,22:49:47
+Muzeum Narodowe,06,9,P+R Al. Krakowska,2024-06-24,22:52:41
+Krucza,06,9,P+R Al. Krakowska,2024-06-24,22:54:18
+Centrum,10,9,P+R Al. Krakowska,2024-06-24,22:55:03
+Szwedzka,02,190,CH Marki,2024-06-24,19:57:55
+"rondo ""Radosława""",04,500,rondo Radosława,2024-06-24,22:00:22
+os.Panieńska,02,162,Pl Hallera,2024-06-24,22:00:22
+Sierakowskiego,02,162,Pl Hallera,2024-06-24,22:00:22
+Gocław,06,148,Wiatraczna,2024-06-24,22:00:30
+Horbaczewskiego,02,148,Wiatraczna,2024-06-24,22:00:30
+Centrum,09,9,Gocławek,2024-06-24,22:49:53
+Krucza,05,9,Gocławek,2024-06-24,22:50:58
+Muzeum Narodowe,05,9,Gocławek,2024-06-24,22:51:59
+most Poniatowskiego,03,9,Gocławek,2024-06-24,22:54:59
+rondo Waszyngtona,06,9,Gocławek,2024-06-24,22:56:47
+Berezyńska,02,9,Gocławek,2024-06-24,22:58:59
+Park Skaryszewski,04,9,Gocławek,2024-06-24,23:00:47
+Wola-Ratusz,03,26,Wiatraczna,2024-06-24,22:47:55
+Kino Femina,05,26,Wiatraczna,2024-06-24,22:50:30
+Metro Ratusz-Arsenał,09,26,Wiatraczna,2024-06-24,22:53:55
+Stare Miasto,01,26,Wiatraczna,2024-06-24,22:55:55
+Park Praski,02,26,Wiatraczna,2024-06-24,22:58:55
+Dw.Wileński,07,26,Wiatraczna,2024-06-24,23:01:30
+Ząbkowska,03,26,Wiatraczna,2024-06-24,23:03:30
+Kijowska,03,26,Wiatraczna,2024-06-24,23:04:55
+Szwedzka,02,190,CH Marki,2024-06-24,22:00:30
+Dw.Gdański,05,6,Gocławek,2024-06-24,22:56:44
+KS Polonia,01,6,Gocławek,2024-06-24,22:57:50
+Park Traugutta,05,6,Gocławek,2024-06-24,22:59:05
+most Gdański,03,6,Gocławek,2024-06-24,23:00:07
+Wybrzeże Helskie,04,6,Gocławek,2024-06-24,23:01:49
+rondo Starzyńskiego,04,6,Gocławek,2024-06-24,23:02:50
+pl.Hallera,03,6,Gocławek,2024-06-24,23:04:36
+PKP Powiśle,04,162,Pl Hallera,2024-06-24,22:00:29
+Topiel,01,162,Pl Hallera,2024-06-24,22:00:29
+most Świętokrzyski,02,162,Pl Hallera,2024-06-24,23:02:04
+os.Panieńska,02,162,Pl Hallera,2024-06-24,23:04:10
+Sierakowskiego,02,162,Pl Hallera,2024-06-24,23:04:39
+Ząbkowska,06,162,Pl Hallera,2024-06-24,23:06:37
+Marszałkowska,02,523,Stare Bemowo,2024-06-24,22:00:28
+Metro Politechnika,02,523,Stare Bemowo,2024-06-24,22:00:28
+Bora-Komorowskiego,01,148,Lotnisko Chopina,2024-06-24,23:01:01
+Horbaczewskiego,01,148,Lotnisko Chopina,2024-06-24,23:01:01
+Gocław,09,148,Lotnisko Chopina,2024-06-24,23:03:22
+most Siekierkowski,03,148,Lotnisko Chopina,2024-06-24,23:04:42
+Siekierki-Sanktuarium,01,148,Lotnisko Chopina,2024-06-24,23:06:46
+Małe Siekierki,01,148,Lotnisko Chopina,2024-06-24,23:09:31
+Ogrody Działkowe Czerniaków,01,148,Lotnisko Chopina,2024-06-24,23:10:29
+Marszałkowska,01,523,PKP Olszynka Grochowska,2024-06-24,23:01:02
+pl.Na Rozdrożu,55,523,PKP Olszynka Grochowska,2024-06-24,23:01:46
+Rozbrat,01,523,PKP Olszynka Grochowska,2024-06-24,23:02:57
+Saska,02,523,PKP Olszynka Grochowska,2024-06-24,23:05:18
+Międzynarodowa,02,523,PKP Olszynka Grochowska,2024-06-24,23:06:14
+Przyczółek Grochowski,02,523,PKP Olszynka Grochowska,2024-06-24,23:07:47
+Stare Miasto,01,190,CH Marki,2024-06-24,23:01:13
+Park Praski,02,190,CH Marki,2024-06-24,23:02:58
+Dw.Wileński,04,190,CH Marki,2024-06-24,23:04:43
+Rzeszotarskiej,02,190,CH Marki,2024-06-24,23:05:48
+Szwedzka,02,190,CH Marki,2024-06-24,23:06:32
+Stare Miasto,02,190,Os. Górczewska,2024-06-24,23:00:54
+Metro Ratusz-Arsenał,10,190,Os. Górczewska,2024-06-24,22:00:30
+Kino Femina,02,190,Os. Górczewska,2024-06-24,23:04:42
+Wola-Ratusz,02,190,Os. Górczewska,2024-06-24,23:05:52
+"rondo ""Radosława""",03,500,Bródno Podgrodzie,2024-06-24,23:02:54
+Baseny Inflancka,01,500,Bródno Podgrodzie,2024-06-24,23:03:40
+Dw.Gdański,03,500,Bródno Podgrodzie,2024-06-24,23:04:55
+rondo Starzyńskiego,02,500,Bródno Podgrodzie,2024-06-24,23:07:46
+rondo Żaba,02,500,Bródno Podgrodzie,2024-06-24,23:10:21
+Rogowska,02,500,Bródno Podgrodzie,2024-06-24,23:11:07
+Kołowa,02,500,Bródno Podgrodzie,2024-06-24,23:12:03
+rondo Waszyngtona,02,521,Falenica,2024-06-24,22:00:17
+Wiatraczna,22,521,Falenica,2024-06-24,23:01:02
+Metro Politechnika,02,523,Stare Bemowo,2024-06-24,23:00:56
+pl.Hallera,04,6,Metro Młociny,2024-06-24,23:03:28
+rondo Starzyńskiego,03,6,Metro Młociny,2024-06-24,23:04:59
+Wybrzeże Helskie,03,6,Metro Młociny,2024-06-24,23:06:05
+most Gdański,04,6,Metro Młociny,2024-06-24,23:07:15
+Park Traugutta,04,6,Metro Młociny,2024-06-24,23:08:36
+KS Polonia,02,6,Metro Młociny,2024-06-24,23:09:52
+Dw.Gdański,06,6,Metro Młociny,2024-06-24,23:11:14
+Szwedzka,02,190,CH Marki,2024-06-24,19:57:55
+Park Skaryszewski,03,9,P+R Al. Krakowska,2024-06-24,23:04:22
+Berezyńska,01,9,P+R Al. Krakowska,2024-06-24,23:05:43
+rondo Waszyngtona,05,9,P+R Al. Krakowska,2024-06-24,23:07:59
+most Poniatowskiego,04,9,P+R Al. Krakowska,2024-06-24,23:09:50
+Muzeum Narodowe,06,9,P+R Al. Krakowska,2024-06-24,23:12:21
+Krucza,06,9,P+R Al. Krakowska,2024-06-24,23:14:12
+Centrum,10,9,P+R Al. Krakowska,2024-06-24,23:15:43
+"rondo ""Radosława""",04,500,rondo Radosława,2024-06-24,22:00:22
+Wiatraczna,22,521,Falenica,2024-06-24,23:05:06
+Kijowska,04,26,Metro Młociny,2024-06-24,22:49:36
+Ząbkowska,04,26,Metro Młociny,2024-06-24,22:54:28
+Dw.Wileński,03,26,Metro Młociny,2024-06-24,22:54:43
+Park Praski,01,26,Metro Młociny,2024-06-24,22:56:14
+Kino Femina,06,26,Metro Młociny,2024-06-24,23:03:13
+Wola-Ratusz,04,26,Metro Młociny,2024-06-24,23:04:59
+Pelcowizna,06,114,UKSW,2024-06-24,23:06:08
+PKP Toruńska,01,114,UKSW,2024-06-24,23:07:09
+Żerań FSO,03,114,UKSW,2024-06-24,23:08:09
+most Grota-Roweckiego,01,114,UKSW,2024-06-24,23:10:09
+Czarnieckiego,02,114,UKSW,2024-06-24,23:12:39
+pl.Wilsona,06,114,UKSW,2024-06-24,23:16:09
+Suzina,02,114,UKSW,2024-06-24,23:17:40
+Przyczółek Grochowski,01,523,Stare Bemowo,2024-06-24,23:06:21
+Międzynarodowa,01,523,Stare Bemowo,2024-06-24,23:08:01
+Saska,01,523,Stare Bemowo,2024-06-24,23:09:21
+Rozbrat,02,523,Stare Bemowo,2024-06-24,23:11:41
+pl.Na Rozdrożu,06,523,Stare Bemowo,2024-06-24,23:13:01
+Marszałkowska,02,523,Stare Bemowo,2024-06-24,23:14:21
+Metro Politechnika,02,523,Stare Bemowo,2024-06-24,23:15:41
+Szwedzka,01,190,Os. Górczewska,2024-06-24,23:07:01
+Rzeszotarskiej,01,190,Os. Górczewska,2024-06-24,23:08:57
+Dw.Wileński,03,190,Os. Górczewska,2024-06-24,23:11:57
+Park Praski,01,190,Os. Górczewska,2024-06-24,23:13:08
+Stare Miasto,02,190,Os. Górczewska,2024-06-24,23:15:08
+Metro Ratusz-Arsenał,10,190,Os. Górczewska,2024-06-24,23:17:15
+Kino Femina,02,190,Os. Górczewska,2024-06-24,23:18:40
+Wola-Ratusz,02,190,Os. Górczewska,2024-06-24,23:19:50
+Wola-Ratusz,03,26,Wiatraczna,2024-06-24,23:08:28
+Kino Femina,05,26,Wiatraczna,2024-06-24,23:10:10
+Metro Ratusz-Arsenał,09,26,Wiatraczna,2024-06-24,23:11:57
+Stare Miasto,01,26,Wiatraczna,2024-06-24,23:13:59
+Park Praski,02,26,Wiatraczna,2024-06-24,23:16:42
+Dw.Wileński,07,26,Wiatraczna,2024-06-24,23:19:19
+Ząbkowska,03,26,Wiatraczna,2024-06-24,23:20:37
+Kijowska,03,26,Wiatraczna,2024-06-24,23:22:35
+Centrum,09,9,Gocławek,2024-06-24,23:08:27
+Krucza,05,9,Gocławek,2024-06-24,23:09:27
+Muzeum Narodowe,05,9,Gocławek,2024-06-24,23:10:23
+most Poniatowskiego,03,9,Gocławek,2024-06-24,23:14:30
+rondo Waszyngtona,06,9,Gocławek,2024-06-24,23:16:11
+Berezyńska,02,9,Gocławek,2024-06-24,23:17:27
+Park Skaryszewski,04,9,Gocławek,2024-06-24,23:19:07
+Szwedzka,02,190,CH Marki,2024-06-24,22:00:32
+Szwedzka,02,190,CH Marki,2024-06-24,23:09:30
+rondo Waszyngtona,02,521,Falenica,2024-06-24,23:03:36
+Grenadierów,02,521,Falenica,2024-06-24,23:07:01
+Wiatraczna,22,521,Falenica,2024-06-24,23:09:45
+Kijowska,04,26,Metro Młociny,2024-06-24,23:10:23
+Ząbkowska,04,26,Metro Młociny,2024-06-24,23:11:14
+Dw.Wileński,03,26,Metro Młociny,2024-06-24,23:14:51
+Park Praski,01,26,Metro Młociny,2024-06-24,23:15:42
+Stare Miasto,02,26,Metro Młociny,2024-06-24,23:18:08
+Metro Ratusz-Arsenał,10,26,Metro Młociny,2024-06-24,23:20:04
+Kino Femina,06,26,Metro Młociny,2024-06-24,23:22:35
+Wola-Ratusz,04,26,Metro Młociny,2024-06-24,23:24:36
+Kołowa,01,500,rondo Radosława,2024-06-24,23:11:31
+Rogowska,01,500,rondo Radosława,2024-06-24,23:11:56
+rondo Żaba,01,500,rondo Radosława,2024-06-24,23:12:29
+rondo Starzyńskiego,01,500,rondo Radosława,2024-06-24,23:16:19
+Dw.Gdański,04,500,rondo Radosława,2024-06-24,23:19:12
+Baseny Inflancka,02,500,rondo Radosława,2024-06-24,23:20:41
+"rondo ""Radosława""",04,500,rondo Radosława,2024-06-24,23:24:39
+Dw.Gdański,05,6,Gocławek,2024-06-24,23:11:55
+KS Polonia,01,6,Gocławek,2024-06-24,23:13:16
+Park Traugutta,05,6,Gocławek,2024-06-24,23:14:27
+most Gdański,03,6,Gocławek,2024-06-24,23:15:18
+Wybrzeże Helskie,04,6,Gocławek,2024-06-24,23:16:19
+rondo Starzyńskiego,04,6,Gocławek,2024-06-24,23:17:20
+pl.Hallera,03,6,Gocławek,2024-06-24,23:19:06
+"rondo ""Radosława""",03,500,Bródno Podgrodzie,2024-06-24,23:17:14
+Baseny Inflancka,01,500,Bródno Podgrodzie,2024-06-24,23:18:27
+Dw.Gdański,03,500,Bródno Podgrodzie,2024-06-24,23:19:24
+rondo Starzyńskiego,02,500,Bródno Podgrodzie,2024-06-24,22:00:22
+rondo Żaba,02,500,Bródno Podgrodzie,2024-06-24,23:24:42
+Rogowska,02,500,Bródno Podgrodzie,2024-06-24,23:25:18
+Kołowa,02,500,Bródno Podgrodzie,2024-06-24,23:25:52
+Metro Politechnika,01,523,PKP Olszynka Grochowska,2024-06-24,23:14:10
+Marszałkowska,01,523,PKP Olszynka Grochowska,2024-06-24,23:15:53
+pl.Na Rozdrożu,55,523,PKP Olszynka Grochowska,2024-06-24,23:16:53
+Rozbrat,01,523,PKP Olszynka Grochowska,2024-06-24,23:18:29
+Saska,02,523,PKP Olszynka Grochowska,2024-06-24,23:20:48
+Międzynarodowa,02,523,PKP Olszynka Grochowska,2024-06-24,23:21:57
+Przyczółek Grochowski,02,523,PKP Olszynka Grochowska,2024-06-24,23:23:23
+most Grota-Roweckiego,02,114,Bródno Podgrodzie,2024-06-24,23:13:42
+Żerań FSO,04,114,Bródno Podgrodzie,2024-06-24,23:12:42
+PKP Toruńska,02,114,Bródno Podgrodzie,2024-06-24,23:12:11
+pl.Wilsona,05,114,Bródno Podgrodzie,2024-06-24,23:17:15
+Czarnieckiego,01,114,Bródno Podgrodzie,2024-06-24,23:18:06
+Centrum Olimpijskie,02,114,Bródno Podgrodzie,2024-06-24,23:18:35
+most Grota-Roweckiego,02,114,Bródno Podgrodzie,2024-06-24,23:20:31
+Żerań FSO,04,114,Bródno Podgrodzie,2024-06-24,23:22:19
+PKP Toruńska,02,114,Bródno Podgrodzie,2024-06-24,23:23:30
+Bazyliańska,01,114,Bródno Podgrodzie,2024-06-24,23:24:42
+Ogrody Działkowe Czerniaków,02,148,Wiatraczna,2024-06-24,23:18:18
+Małe Siekierki,02,148,Wiatraczna,2024-06-24,23:19:14
+Siekierki-Sanktuarium,02,148,Wiatraczna,2024-06-24,23:20:48
+most Siekierkowski,04,148,Wiatraczna,2024-06-24,23:22:47
+Gocław,06,148,Wiatraczna,2024-06-24,23:26:35
+Horbaczewskiego,02,148,Wiatraczna,2024-06-24,23:27:22
+Bora-Komorowskiego,04,148,Wiatraczna,2024-06-24,23:28:21
+rondo Żaba,02,500,Bródno Podgrodzie,2024-06-24,23:18:14
+Rogowska,02,500,Bródno Podgrodzie,2024-06-24,23:17:54
+Kołowa,02,500,Bródno Podgrodzie,2024-06-24,23:17:14
+Dw.Wileński,01,162,EC Siekierki,2024-06-24,23:18:28
+Sierakowskiego,01,162,EC Siekierki,2024-06-24,23:20:43
+os.Panieńska,01,162,EC Siekierki,2024-06-24,23:21:33
+most Świętokrzyski,03,162,EC Siekierki,2024-06-24,23:22:58
+Metro Centrum Nauki Kopernik,04,162,EC Siekierki,2024-06-24,23:25:05
+Topiel,03,162,EC Siekierki,2024-06-24,23:28:20
+PKP Powiśle,03,162,EC Siekierki,2024-06-24,23:29:31
+Kijowska,03,26,Wiatraczna,2024-06-24,23:17:28
+Przyczółek Grochowski,01,523,Stare Bemowo,2024-06-24,23:20:24
+Międzynarodowa,01,523,Stare Bemowo,2024-06-24,23:22:11
+Saska,01,523,Stare Bemowo,2024-06-24,23:23:35
+Rozbrat,02,523,Stare Bemowo,2024-06-24,23:26:14
+pl.Na Rozdrożu,06,523,Stare Bemowo,2024-06-24,23:27:33
+Marszałkowska,02,523,Stare Bemowo,2024-06-24,23:28:21
+Metro Politechnika,02,523,Stare Bemowo,2024-06-24,23:29:43
+Szwedzka,02,190,CH Marki,2024-06-24,19:57:55
+"rondo ""Radosława""",04,500,rondo Radosława,2024-06-24,22:00:22
+pl.Hallera,04,6,Metro Młociny,2024-06-24,23:21:53
+rondo Starzyńskiego,03,6,Metro Młociny,2024-06-24,23:23:53
+Wybrzeże Helskie,03,6,Metro Młociny,2024-06-24,23:25:00
+most Gdański,04,6,Metro Młociny,2024-06-24,23:26:05
+Park Traugutta,04,6,Metro Młociny,2024-06-24,23:27:16
+KS Polonia,02,6,Metro Młociny,2024-06-24,23:28:57
+Dw.Gdański,06,6,Metro Młociny,2024-06-24,23:29:57
+Wola-Ratusz,01,190,CH Marki,2024-06-24,23:23:22
+Kino Femina,01,190,CH Marki,2024-06-24,23:25:02
+Metro Ratusz-Arsenał,09,190,CH Marki,2024-06-24,23:27:05
+Stare Miasto,01,190,CH Marki,2024-06-24,23:29:07
+Park Praski,02,190,CH Marki,2024-06-24,23:30:42
+Dw.Wileński,04,190,CH Marki,2024-06-24,23:31:43
+Rzeszotarskiej,02,190,CH Marki,2024-06-24,23:32:44
+Szwedzka,02,190,CH Marki,2024-06-24,23:33:47
+Park Skaryszewski,03,9,P+R Al. Krakowska,2024-06-24,23:25:40
+Berezyńska,01,9,P+R Al. Krakowska,2024-06-24,23:27:12
+rondo Waszyngtona,05,9,P+R Al. Krakowska,2024-06-24,23:29:09
+most Poniatowskiego,04,9,P+R Al. Krakowska,2024-06-24,23:31:11
+Muzeum Narodowe,06,9,P+R Al. Krakowska,2024-06-24,23:33:43
+Krucza,06,9,P+R Al. Krakowska,2024-06-24,23:34:29
+Centrum,10,9,P+R Al. Krakowska,2024-06-24,23:36:05
+Szwedzka,02,190,CH Marki,2024-06-24,22:00:32
+Szwedzka,01,190,Os. Górczewska,2024-06-24,23:26:23
+PKP Powiśle,04,162,Pl Hallera,2024-06-24,23:26:55
+Topiel,01,162,Pl Hallera,2024-06-24,23:28:45
+Metro Centrum Nauki Kopernik,03,162,Pl Hallera,2024-06-24,23:29:48
+most Świętokrzyski,02,162,Pl Hallera,2024-06-24,23:31:08
+os.Panieńska,02,162,Pl Hallera,2024-06-24,23:32:11
+Sierakowskiego,02,162,Pl Hallera,2024-06-24,23:33:30
+Ząbkowska,06,162,Pl Hallera,2024-06-24,23:35:37
+"rondo ""Radosława""",03,500,Bródno Podgrodzie,2024-06-24,23:31:21
+Baseny Inflancka,01,500,Bródno Podgrodzie,2024-06-24,23:32:40
+Dw.Gdański,03,500,Bródno Podgrodzie,2024-06-24,23:33:38
+rondo Starzyńskiego,02,500,Bródno Podgrodzie,2024-06-24,23:37:18
+rondo Żaba,02,500,Bródno Podgrodzie,2024-06-24,23:39:56
+Rogowska,02,500,Bródno Podgrodzie,2024-06-24,23:40:40
+Kołowa,02,500,Bródno Podgrodzie,2024-06-24,23:41:30
+Wola-Ratusz,03,26,Wiatraczna,2024-06-24,23:27:27
+Kino Femina,05,26,Wiatraczna,2024-06-24,23:29:33
+Metro Ratusz-Arsenał,09,26,Wiatraczna,2024-06-24,23:33:10
+Stare Miasto,01,26,Wiatraczna,2024-06-24,23:35:21
+Park Praski,02,26,Wiatraczna,2024-06-24,23:37:48
+Dw.Wileński,07,26,Wiatraczna,2024-06-24,23:40:14
+Ząbkowska,03,26,Wiatraczna,2024-06-24,23:41:45
+Kijowska,03,26,Wiatraczna,2024-06-24,23:43:25
+Kijowska,03,26,Wiatraczna,2024-06-24,23:29:55
+Centrum,09,9,Gocławek,2024-06-24,23:29:48
+Krucza,05,9,Gocławek,2024-06-24,23:31:33
+Muzeum Narodowe,05,9,Gocławek,2024-06-24,23:32:34
+most Poniatowskiego,03,9,Gocławek,2024-06-24,23:35:26
+rondo Waszyngtona,06,9,Gocławek,2024-06-24,23:37:37
+Berezyńska,02,9,Gocławek,2024-06-24,23:38:58
+Park Skaryszewski,04,9,Gocławek,2024-06-24,23:40:13
+Metro Politechnika,01,523,PKP Olszynka Grochowska,2024-06-24,23:31:45
+Marszałkowska,01,523,PKP Olszynka Grochowska,2024-06-24,23:32:47
+pl.Na Rozdrożu,55,523,PKP Olszynka Grochowska,2024-06-24,23:33:42
+Rozbrat,01,523,PKP Olszynka Grochowska,2024-06-24,23:34:47
+Saska,02,523,PKP Olszynka Grochowska,2024-06-24,23:37:23
+Międzynarodowa,02,523,PKP Olszynka Grochowska,2024-06-24,23:38:18
+Przyczółek Grochowski,02,523,PKP Olszynka Grochowska,2024-06-24,23:39:30
+Park Praski,02,190,CH Marki,2024-06-24,23:34:28
+Dw.Wileński,04,190,CH Marki,2024-06-24,23:33:31
+Rzeszotarskiej,02,190,CH Marki,2024-06-24,23:31:23
+Szwedzka,02,190,CH Marki,2024-06-24,23:30:57
+Grenadierów,02,521,Falenica,2024-06-24,23:32:18
+Wiatraczna,22,521,Falenica,2024-06-24,23:34:21
+Dw.Gdański,05,6,Gocławek,2024-06-24,23:34:31
+KS Polonia,01,6,Gocławek,2024-06-24,23:35:29
+Park Traugutta,05,6,Gocławek,2024-06-24,23:36:55
+most Gdański,03,6,Gocławek,2024-06-24,23:37:37
+Wybrzeże Helskie,04,6,Gocławek,2024-06-24,23:39:02
+rondo Starzyńskiego,04,6,Gocławek,2024-06-24,23:39:37
+pl.Hallera,03,6,Gocławek,2024-06-24,23:41:16
+Metro Politechnika,01,523,PKP Olszynka Grochowska,2024-06-24,23:35:02
+Marszałkowska,01,523,PKP Olszynka Grochowska,2024-06-24,23:35:26
+pl.Na Rozdrożu,55,523,PKP Olszynka Grochowska,2024-06-24,23:36:01
+Rozbrat,01,523,PKP Olszynka Grochowska,2024-06-24,23:36:34
+Saska,02,523,PKP Olszynka Grochowska,2024-06-24,23:38:43
+Międzynarodowa,02,523,PKP Olszynka Grochowska,2024-06-24,23:39:08
+Przyczółek Grochowski,02,523,PKP Olszynka Grochowska,2024-06-24,23:39:59
+Szwedzka,02,190,CH Marki,2024-06-24,19:57:55
+"rondo ""Radosława""",04,500,rondo Radosława,2024-06-24,22:00:22
+Dw.Wileński,04,190,CH Marki,2024-06-24,23:38:18
+Rzeszotarskiej,02,190,CH Marki,2024-06-24,23:37:07
+Szwedzka,02,190,CH Marki,2024-06-24,23:36:31
+most Grota-Roweckiego,02,114,Bródno Podgrodzie,2024-06-24,23:40:19
+Żerań FSO,04,114,Bródno Podgrodzie,2024-06-24,23:39:04
+PKP Toruńska,02,114,Bródno Podgrodzie,2024-06-24,23:38:39
+rondo Żaba,02,500,Bródno Podgrodzie,2024-06-24,23:41:42
+Rogowska,02,500,Bródno Podgrodzie,2024-06-24,23:41:16
+Kołowa,02,500,Bródno Podgrodzie,2024-06-24,23:40:21
+Szwedzka,02,190,CH Marki,2024-06-24,22:00:32
+Dw.Wileński,01,162,EC Siekierki,2024-06-25,23:45:01
+pl.Wilsona,05,114,Bródno Podgrodzie,2024-06-25,23:47:49
+Czarnieckiego,01,114,Bródno Podgrodzie,2024-06-25,23:48:19
+Centrum Olimpijskie,02,114,Bródno Podgrodzie,2024-06-25,23:49:20
+most Grota-Roweckiego,02,114,Bródno Podgrodzie,2024-06-25,23:50:50
+Żerań FSO,04,114,Bródno Podgrodzie,2024-06-25,23:52:51
+PKP Toruńska,02,114,Bródno Podgrodzie,2024-06-25,23:53:51
+Bazyliańska,01,114,Bródno Podgrodzie,2024-06-25,23:55:21
+Park Skaryszewski,03,9,P+R Al. Krakowska,2024-06-25,23:47:04
+Berezyńska,01,9,P+R Al. Krakowska,2024-06-25,23:48:50
+rondo Waszyngtona,05,9,P+R Al. Krakowska,2024-06-25,23:50:26
+most Poniatowskiego,04,9,P+R Al. Krakowska,2024-06-25,23:52:37
+Muzeum Narodowe,06,9,P+R Al. Krakowska,2024-06-25,23:55:03
+Krucza,06,9,P+R Al. Krakowska,2024-06-25,23:56:44
+Centrum,10,9,P+R Al. Krakowska,2024-06-25,23:57:20
+rondo Żaba,02,500,Bródno Podgrodzie,2024-06-25,23:45:51
+Rogowska,02,500,Bródno Podgrodzie,2024-06-25,23:45:17
+Kołowa,02,500,Bródno Podgrodzie,2024-06-25,23:44:48
+Metro Politechnika,01,523,PKP Olszynka Grochowska,2024-06-25,23:48:37
+Marszałkowska,01,523,PKP Olszynka Grochowska,2024-06-25,23:49:25
+pl.Na Rozdrożu,55,523,PKP Olszynka Grochowska,2024-06-25,23:50:57
+Rozbrat,01,523,PKP Olszynka Grochowska,2024-06-25,23:52:18
+Saska,02,523,PKP Olszynka Grochowska,2024-06-25,23:54:37
+Międzynarodowa,02,523,PKP Olszynka Grochowska,2024-06-25,23:55:34
+Przyczółek Grochowski,02,523,PKP Olszynka Grochowska,2024-06-25,23:57:05
+Ogrody Działkowe Czerniaków,02,148,Wiatraczna,2024-06-25,23:49:00
+Małe Siekierki,02,148,Wiatraczna,2024-06-25,23:50:57
+Siekierki-Sanktuarium,02,148,Wiatraczna,2024-06-25,23:52:28
+most Siekierkowski,04,148,Wiatraczna,2024-06-25,23:54:47
+Gocław,06,148,Wiatraczna,2024-06-25,23:58:15
+Horbaczewskiego,02,148,Wiatraczna,2024-06-25,23:58:59
+Bora-Komorowskiego,04,148,Wiatraczna,2024-06-25,23:59:44
+Kijowska,04,26,Metro Młociny,2024-06-25,23:50:05
+Ząbkowska,04,26,Metro Młociny,2024-06-25,23:50:50
+Dw.Wileński,03,26,Metro Młociny,2024-06-25,23:53:43
+Park Praski,01,26,Metro Młociny,2024-06-25,23:54:49
+Stare Miasto,02,26,Metro Młociny,2024-06-25,23:57:22
+Metro Ratusz-Arsenał,10,26,Metro Młociny,2024-06-25,23:59:25
+Kino Femina,06,26,Metro Młociny,2024-06-25,00:01:13
+Wola-Ratusz,04,26,Metro Młociny,2024-06-25,00:02:59
+Centrum,09,9,Gocławek,2024-06-25,23:48:29
+Krucza,05,9,Gocławek,2024-06-25,23:49:30
+Muzeum Narodowe,05,9,Gocławek,2024-06-25,23:50:26
+most Poniatowskiego,03,9,Gocławek,2024-06-25,23:53:07
+rondo Waszyngtona,06,9,Gocławek,2024-06-25,23:54:49
+Berezyńska,02,9,Gocławek,2024-06-25,23:56:14
+Park Skaryszewski,04,9,Gocławek,2024-06-25,23:57:20
+Metro Politechnika,01,523,PKP Olszynka Grochowska,2024-06-25,23:51:19
+Marszałkowska,01,523,PKP Olszynka Grochowska,2024-06-25,23:51:45
+pl.Na Rozdrożu,55,523,PKP Olszynka Grochowska,2024-06-25,23:51:56
+Rozbrat,01,523,PKP Olszynka Grochowska,2024-06-25,23:52:42
+Saska,02,523,PKP Olszynka Grochowska,2024-06-25,23:54:25
+Międzynarodowa,02,523,PKP Olszynka Grochowska,2024-06-25,23:54:47
+Przyczółek Grochowski,02,523,PKP Olszynka Grochowska,2024-06-25,23:55:34
+Szwedzka,02,190,CH Marki,2024-06-25,23:51:55
+Szwedzka,02,190,CH Marki,2024-06-25,19:57:55
+"rondo ""Radosława""",04,500,rondo Radosława,2024-06-25,22:00:22
+Rogowska,01,500,rondo Radosława,2024-06-25,23:55:40
+Szwedzka,01,190,Os. Górczewska,2024-06-25,23:56:19
+Szwedzka,02,190,CH Marki,2024-06-25,22:00:32
+Wiatraczna,22,521,Falenica,2024-06-25,00:03:56
+Park Skaryszewski,03,9,P+R Al. Krakowska,2024-06-25,00:04:37
+Berezyńska,01,9,P+R Al. Krakowska,2024-06-25,00:05:52
+rondo Waszyngtona,05,9,P+R Al. Krakowska,2024-06-25,00:07:48
+most Poniatowskiego,04,9,P+R Al. Krakowska,2024-06-25,00:09:44
+Muzeum Narodowe,06,9,P+R Al. Krakowska,2024-06-25,00:12:26
+Krucza,06,9,P+R Al. Krakowska,2024-06-25,00:13:57
+Centrum,10,9,P+R Al. Krakowska,2024-06-25,00:14:57
+Kijowska,03,26,Wiatraczna,2024-06-25,00:08:59
+Park Praski,02,190,CH Marki,2024-06-25,00:09:47
+Dw.Wileński,04,190,CH Marki,2024-06-25,00:08:47
+Rzeszotarskiej,02,190,CH Marki,2024-06-25,00:07:47
+Szwedzka,02,190,CH Marki,2024-06-25,00:07:12
+Szwedzka,02,190,CH Marki,2024-06-25,19:57:55
+"rondo ""Radosława""",04,500,rondo Radosława,2024-06-25,22:00:22
+most Grota-Roweckiego,02,114,Bródno Podgrodzie,2024-06-25,00:10:52
+Żerań FSO,04,114,Bródno Podgrodzie,2024-06-25,00:09:52
+PKP Toruńska,02,114,Bródno Podgrodzie,2024-06-25,00:09:22
+Centrum,09,9,Gocławek,2024-06-25,00:11:11
+Krucza,05,9,Gocławek,2024-06-25,00:12:32
+Muzeum Narodowe,05,9,Gocławek,2024-06-25,00:13:33
+most Poniatowskiego,03,9,Gocławek,2024-06-25,00:16:26
+rondo Waszyngtona,06,9,Gocławek,2024-06-25,00:18:13
+Berezyńska,02,9,Gocławek,2024-06-25,00:20:10
+Park Skaryszewski,04,9,Gocławek,2024-06-25,00:21:26
+rondo Żaba,02,500,Bródno Podgrodzie,2024-06-25,00:12:30
+Rogowska,02,500,Bródno Podgrodzie,2024-06-25,00:11:44
+Kołowa,02,500,Bródno Podgrodzie,2024-06-25,00:10:46
+Szwedzka,02,190,CH Marki,2024-06-25,22:00:32
+Szwedzka,02,190,CH Marki,2024-06-25,19:57:55
+Szwedzka,02,190,CH Marki,2024-06-25,00:27:21
+"rondo ""Radosława""",04,500,rondo Radosława,2024-06-25,22:00:22
+Centrum,09,9,Gocławek,2024-06-25,00:27:42
+Krucza,05,9,Gocławek,2024-06-25,00:28:57
+Muzeum Narodowe,05,9,Gocławek,2024-06-25,00:29:58
+most Poniatowskiego,03,9,Gocławek,2024-06-25,00:32:44
+rondo Waszyngtona,06,9,Gocławek,2024-06-25,00:34:35
+Berezyńska,02,9,Gocławek,2024-06-25,00:35:51
+Park Skaryszewski,04,9,Gocławek,2024-06-25,00:37:21
+Szwedzka,02,190,CH Marki,2024-06-25,22:00:32
