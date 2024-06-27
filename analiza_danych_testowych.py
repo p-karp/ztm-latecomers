@@ -4,7 +4,7 @@ import numpy as np
 
 
 '''Zabawa'''
-df = pd.read_csv('./wyniki/23-06_18:30.csv', encoding='windows-1250')
+df = pd.read_csv('./wyniki/26-06_11:18.csv', encoding='windows-1250')
 
 # Filtrowanie rekordów, gdzie nazwa przystanku zaczyna się na literę "C"
 filtered_df = df[df['przystanek'].str.startswith(('C', 'm'), na=False)]
@@ -36,7 +36,7 @@ for index, row in df.iterrows():
 
 
 '''Pokaz jak to wygląda w środku'''
-#print(St[162])
+# print(St[523])
 
 def statystyki(scheduledArr, file):
     scheduledDeltaArr = []
@@ -53,35 +53,25 @@ def statystyki(scheduledArr, file):
         mean_value = np.mean(scheduledDeltaArr)
         std_deviation = np.std(scheduledDeltaArr)
         min_value = np.min(scheduledDeltaArr)
-        max_value = np.max(scheduledDeltaArr)    
-    except:
-        print("Nie zarejestrowano żadnych przyjazdów dla tej lini")
+        max_value = np.max(scheduledDeltaArr)
 
-    finalScheduledDeltaArr = []
-    for delta in scheduledDeltaArr:
-        if(delta < 1.3 * mean_value): finalScheduledDeltaArr.append(delta)
-        else: longDelays += 1
-
-    try:
-        mean_value = np.mean(finalScheduledDeltaArr)
-        std_deviation = np.std(finalScheduledDeltaArr)
-        min_value = np.min(finalScheduledDeltaArr)
-        max_value = np.max(finalScheduledDeltaArr)
         file.write(f"Liczba wszystkich rejestracji:{len(scheduledDeltaArr)+2}\n")
-        file.write(f"Liczba dużych opóźnień: {longDelays}\n")
-        #print(f"Liczba dużych opóźnień: {longDelays}")
         file.write(f"Średnia: {mean_value}\n")
         #print(f"Średnia: {mean_value}")
         file.write(f"Odchylenie standardowe: {std_deviation}\n")
         #print(f"Odchylenie standardowe: {std_deviation}")
         file.write(f"Minimum: {min_value}\n")
         #print(f"Minimum: {min_value}")
-        file.write(f"Maksimum: {max_value}\n\n")
-        #print(f"Maksimum: {max_value}\n")
+        file.write(f"Maksimum: {max_value}\n")
+        #print(f"Maksimum: {max_value}\n")   
     except:
-        file.write("Nie zarejestrowano żadnych przyjazdów dla tej lini\n\n")
-        #print("Nie zarejestrowano żadnych przyjazdów dla tej lini\n")
+        print("Nie zarejestrowano żadnych przyjazdów dla tej lini")
 
+    # można lekko zmodyfikować o dane zebrane z api, a nie liczone na podstawie średniej zebranej
+    for delta in scheduledDeltaArr:
+        if(delta > mean_value + 10.0): longDelays += 1
+    file.write(f"Liczba dużych opóźnień: {longDelays}\n\n")
+        #print(f"Liczba dużych opóźnień: {longDelays}")
 
 with open("analiza_danych_testowych.csv", "w") as file:
     for line in St.keys():
