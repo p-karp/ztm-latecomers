@@ -3,7 +3,6 @@ import time
 import busStops as bs
 from datetime import datetime
 import csv
-import os
 
 # Funkcja pobierające dane o autobusach
 def collectBusesData(ztm):
