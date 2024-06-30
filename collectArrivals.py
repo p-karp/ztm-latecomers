@@ -56,7 +56,13 @@ def main():
     ztm = wawztm.ztm(apikey='7febd25f-aa4e-4c31-8b8a-d517530106ca')
     
     # Funkcja pobierająca dane o przystankach
-    stops = bs.getBusStopsData()
+    exp = True
+    while(exp):
+        try:
+            stops = bs.getBusStopsData()
+            exp = False
+        except:
+            time.sleep(2)
 
     czas = datetime.now()   
     czas_str = czas.strftime('%H:%M:%S')
@@ -65,12 +71,6 @@ def main():
     tracked_veh = {}
     for linia in przystanki:
         tracked_veh[linia] = {}
-    
-    # startowy (aktualny) czas zbierania danych w sekundach
-    t = 0
-    
-    # krok czasowy co ile są zbierane dane (w sekundach)
-    dt = 10
     
     # promień okręgu (w stopniach), kiedy jest łapany autobus
     limit_odl = 0.005 # Około pół kilometra
