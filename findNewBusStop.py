@@ -12,17 +12,3 @@ x = bs.getBusStopsData()
 print(x[id])
 print("id przystanku: ", id)
 print("linie: ", lines)
-
-
-# Pl.Konstytucji 02 01
-# Dolna 52 01
-# Czarnomorska 52 01
-# Nałęczowska 52 51
-# Wilanów 02 01
-# Czekoladowa 02 01
-
-
-busS = ['Pl.Konstytucji', 'Dolna', 'Czarnomorska', 'Nałęczowska', 'Wilanów', 'Czekoladowa']
-for b in busS:
-    id = ztm.get_bus_stop_id_by_bus_stop_name(b)
-    print(id, " ", b)

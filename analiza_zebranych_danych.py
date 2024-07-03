@@ -3,9 +3,10 @@ from datetime import datetime
 import numpy as np
 
 
-'''Zabawa'''
-df = pd.read_csv('./wyniki/26-06_11:18.csv', encoding='windows-1250')
 
+df = pd.read_csv('./dane_01-07_03/26-06_11:18.csv', encoding='windows-1250')
+
+'''Zabawa'''
 # Filtrowanie rekordów, gdzie nazwa przystanku zaczyna się na literę "C"
 filtered_df = df[df['przystanek'].str.startswith(('C', 'm'), na=False)]
 
