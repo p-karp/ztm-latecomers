@@ -2,6 +2,12 @@ import schedule
 import time
 import subprocess
 
+
+def fetchSchedule():
+    print("Starting usefetchSchedule.py")
+    subprocess.Popen(["python3", "usefetchSchedule.py"])
+
+
 # Global variable to keep the process reference
 process = None
 
@@ -10,6 +16,7 @@ def start_collect_arrivals():
     if process is None:
         print("Starting collectArrivals.py")
         process = subprocess.Popen(["python3", "collectArrivals.py"])
+
 
 def stop_collect_arrivals():
     global process
@@ -21,8 +28,9 @@ def stop_collect_arrivals():
         process = None
 
 # Schedule tasks
-schedule.every().day.at("03:00").do(start_collect_arrivals)
-schedule.every().day.at("01:30").do(stop_collect_arrivals)
+schedule.every().day.at("03:05").do(fetchSchedule)
+schedule.every().day.at("03:07").do(start_collect_arrivals)
+schedule.every().day.at("01:00").do(stop_collect_arrivals)
 
 while True:
     schedule.run_pending()
