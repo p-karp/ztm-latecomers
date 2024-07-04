@@ -30,7 +30,7 @@ def fetch_schedule_by_ids(przystanki):
                 print(f"Zwrócono wyjątek: {e}")
 
     # przygotowanie pliku do zapisu
-    file_name = "busSchedules.csv"
+    file_name = f"zebraneDane/rj_{datetime.now().strftime('%d-%m')}.csv"
     kolumny = ["przystanek", "nr_przystanku", "linia", "dzień", "godzina docelowa"]
     date = datetime.now()
 

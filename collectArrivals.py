@@ -83,7 +83,7 @@ def main():
     
     # Do zapisu w csv
     kolumny = ["przystanek", "nr_przystanku", "linia", "kierunek", "dzień", "godzina przyjazdu"]
-    nazwa_pliku = f"wyniki/{czas.strftime('%d-%m_%H')}.csv"
+    nazwa_pliku = f"zebraneDane/dane_{czas.strftime('%d-%m_%H')}.csv"
     
     # Główna pętla programu
     with open(nazwa_pliku, mode = 'w', newline = '') as plik:

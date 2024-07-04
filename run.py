@@ -28,7 +28,7 @@ def stop_collect_arrivals():
         process = None
 
 # Schedule tasks
-schedule.every().day.at("01:00").do(fetchSchedule)
+schedule.every().day.at("01:55").do(fetchSchedule)
 schedule.every().day.at("02:00").do(start_collect_arrivals)
 schedule.every().day.at("01:00").do(stop_collect_arrivals)
 
