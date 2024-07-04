@@ -66,7 +66,7 @@ def main():
 
     czas = datetime.now()   
     czas_str = czas.strftime('%H:%M:%S')
-    time_window = timedelta(minutes=45)
+    okno_czasowe = timedelta(minutes=45)
 
     # tracked_veh: {"LINIA": {"BRYGADA": ["prawidłowy kierunek", {"KIERUNEK1": [(min_odleglosc_od_przystanku, czas_osiagniecia_minimum, pozostale_proby)], "KIERUNEK2": [...]}}}]
     tracked_veh = {}
@@ -107,7 +107,8 @@ def main():
             for veh in (buses+trams):
                 if veh.lines not in przystanki:
                     continue
-                if abs(veh.time - czas) > time_window:
+                # Jeżeli otrzymany czas przyjazdu jest większy/mniejszy niż 45 minut to pomiń
+                if abs(veh.time - czas) > okno_czasowe:
                     continue
                 if veh.lines not in vehicles:
                     vehicles[veh.lines] = {}

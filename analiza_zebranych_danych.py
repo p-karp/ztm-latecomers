@@ -3,12 +3,19 @@ from datetime import datetime
 import numpy as np
 
 
+df = pd.read_csv('./zebraneDane/dane_04-07_02.csv', encoding='windows-1250', delimiter=',')
+pd.set_option('display.max_columns', None)
 
-df = pd.read_csv('./dane_01-07_03/26-06_11:18.csv', encoding='windows-1250')
+# Usunięcie duplikatów
+df_unique = df.drop_duplicates()
+
+
+print("\nDataFrame after removing duplicates:")
+print(df_unique)
 
 '''Zabawa'''
 # Filtrowanie rekordów, gdzie nazwa przystanku zaczyna się na literę "C"
-filtered_df = df[df['przystanek'].str.startswith(('C', 'm'), na=False)]
+filtered_df = df_unique[df_unique['przystanek'].str.startswith(('C', 'm'), na=False)]
 
 grouped_df = filtered_df.groupby(['przystanek', 'nr_przystanku', 'linia']).agg({'godzina przyjazdu': 'count'}).reset_index()
 grouped_df.rename(columns={'godzina przyjazdu': 'ilość przyjazdów'}, inplace=True)
@@ -18,7 +25,7 @@ grouped_df.rename(columns={'godzina przyjazdu': 'ilość przyjazdów'}, inplace=
 '''Meritum'''
 St = {}
 
-for index, row in df.iterrows():
+for index, row in df_unique.iterrows():
     values = row.values.tolist()
 
     if values[2] in St.keys():
