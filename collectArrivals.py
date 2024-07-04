@@ -1,7 +1,7 @@
 import warsaw_data_api as wawztm
 import time
 import busStops as bs
-from datetime import datetime
+from datetime import datetime, timedelta
 import csv
 
 # Funkcja pobierające dane o autobusach
@@ -66,7 +66,8 @@ def main():
 
     czas = datetime.now()   
     czas_str = czas.strftime('%H:%M:%S')
-    
+    time_window = timedelta(minutes=45)
+
     # tracked_veh: {"LINIA": {"BRYGADA": ["prawidłowy kierunek", {"KIERUNEK1": [(min_odleglosc_od_przystanku, czas_osiagniecia_minimum, pozostale_proby)], "KIERUNEK2": [...]}}}]
     tracked_veh = {}
     for linia in przystanki:
@@ -105,6 +106,8 @@ def main():
             
             for veh in (buses+trams):
                 if veh.lines not in przystanki:
+                    continue
+                if abs(veh.time - czas) > time_window:
                     continue
                 if veh.lines not in vehicles:
                     vehicles[veh.lines] = {}
