@@ -4,8 +4,9 @@ import matplotlib.pyplot as plt
 from datetime import datetime
 
 
-D, S = pr.processing('./zebraneDane/rj_30-06.csv', './zebraneDane/dane_30-06_03.csv')
-
+D, S = pr.processing('./zebraneDane/rj_30-06-beta.csv', './zebraneDane/dane_30-06_03.csv')
+print(D[500]['Rondo Żaba'])
+print(S[500]['Rondo Żaba'])
 
 czas_przyjazdu = D[523]['Saska'][1]['2024-06-30']
 czas_rozkłady = S[523]['Saska'][1]['2024-06-30']
