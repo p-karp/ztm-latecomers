@@ -32,6 +32,7 @@ def processing (sfp: str, dfp: str) -> dict:
 
     Pairs = fBSN.findPairs()
     df = pd.read_csv(sfp, encoding='windows-1250', delimiter=";")
+    df = df.drop_duplicates()
     S = {}
 
     for _, row in df.iterrows():
@@ -58,6 +59,6 @@ def processing (sfp: str, dfp: str) -> dict:
 
 
 '''Pokaz jak to wygląda w środku'''
-D, S = processing('./zebraneDane/rj_30-06.csv', './zebraneDane/dane_30-06_03.csv')
-print(D[523])
-print(S[523])
+#D, S = processing('./zebraneDane/rj_30-06.csv', './zebraneDane/dane_30-06_03.csv')
+#print(D[523])
+#print(S[523])
