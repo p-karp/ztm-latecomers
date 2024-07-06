@@ -11,7 +11,7 @@ D - data dict
 S - schedule dict
 '''
 def processing (sfp: str, dfp: str) -> dict:
-    df = pd.read_csv(dfp, encoding='windows-1250')
+    df = pd.read_csv(dfp)
     D = {}
 
     for _, row in df.iterrows():
@@ -59,6 +59,6 @@ def processing (sfp: str, dfp: str) -> dict:
 
 
 '''Pokaz jak to wygląda w środku'''
-#D, S = processing('./zebraneDane/rj_30-06.csv', './zebraneDane/dane_30-06_03.csv')
-#print(D[523])
-#print(S[523])
+# D, S = processing('./zebraneDane/rj_30-06.csv', './zebraneDane/dane_30-06_03.csv')
+# print(D[523]['Przyczółek Grochowski'])
+# print(S[523]['Przyczółek Grochowski'])
