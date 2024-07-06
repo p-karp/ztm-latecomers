@@ -1,16 +1,6 @@
 import re
 
-def remove_lines_starting_with(prefix):
-    for d in ["29-06", "30-06", "01-07", "02-07", "04-07", "05-07"]:
-        with open("./orginalne/dane_" + d + ".csv", 'r', encoding='windows-1250') as file:
-            lines = file.readlines()
-
-        with open("./dane_ok/dane_" + d + ".csv", 'w', encoding='windows-1250') as file:
-            for line in lines:
-                if not line.startswith(prefix):
-                    file.write(line)
-
-def adjust_time_in_file():
+def repair(prefix):
     # Funkcja do zamiany godzin
     def adjust_time(line):
         # Wzorzec do znalezienia godzin w formacie 24:MM
@@ -33,14 +23,14 @@ def adjust_time_in_file():
         # Przetwarzanie każdej linii
         with open("./dane_ok/dane_" + d + ".csv", 'w', encoding='utf-8') as file:
             for line in lines:
-                adjusted_line = adjust_time(line)
-                file.write(adjusted_line)
+                if not line.startswith(prefix):
+                    adjusted_line = adjust_time(line)
+                    file.write(adjusted_line)
 
 
 def main():
     prefix = 'KS Polonia'
-    remove_lines_starting_with(prefix)
-    adjust_time_in_file()
+    repair(prefix)
 
 
 if __name__ == "__main__":
