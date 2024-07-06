@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from datetime import datetime
 
 
-D, S = pr.processing('./zebraneDane/rj_30-06-beta.csv', './zebraneDane/dane_30-06_03.csv')
+D, S = pr.processing('./zebraneDane/dane_ok/rj_30-06-beta.csv', './zebraneDane/dane_ok/dane_30-06.csv')
 print(D[500])
 print(S[500])
 

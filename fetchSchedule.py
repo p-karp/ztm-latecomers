@@ -30,7 +30,7 @@ def fetch_schedule_by_ids(przystanki):
                 print(f"Zwrócono wyjątek: {e}")
 
     # przygotowanie pliku do zapisu
-    file_name = f"zebraneDane/rj_{datetime.now().strftime('%d-%m')}.csv"
+    file_name = "alamakota.csv" # f"zebraneDane/rj_{datetime.now().strftime('%d-%m')}.csv"
     kolumny = ["przystanek", "nr_przystanku", "linia", "dzień", "godzina docelowa"]
     date = datetime.now()
 
@@ -115,6 +115,7 @@ def fetch_schedule_by_names(przystankiNAMES):
 #     ("Muzeum Narodowe", "06", "7"), ("Muzeum Narodowe", "06", "9"), ("Muzeum Narodowe", "06", "22"), ("Muzeum Narodowe", "06", "24"), ("Muzeum Narodowe", "06", "25")
 # ]
 
+# p = [("7053","02","6")]
 
 
 # fetch_schedule_by_ids(p)
