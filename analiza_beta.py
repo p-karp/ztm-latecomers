@@ -25,10 +25,10 @@ def oblicz_opoznienie(czas_przyjazdu, czas_rozkład):
 def przetwarzanie_danych(przyjazdy, rozklady, funkcja_kluczowania):
     dane_przystanki = {}
     
-    for linia in przyjazdy.keys():
-        for przystanek in przyjazdy[linia].keys():
-            for numer in przyjazdy[linia][przystanek].keys():
-                for data in przyjazdy[linia][przystanek][numer].keys():
+    for linia in rozklady.keys():
+        for przystanek in rozklady[linia].keys():
+            for numer in rozklady[linia][przystanek].keys():
+                for data in rozklady[linia][przystanek][numer].keys():
                     klucz = funkcja_kluczowania(linia, przystanek, numer, data)
                     
                     czas_przyjazdu = przyjazdy[linia][przystanek][numer][data]
@@ -86,10 +86,10 @@ def opoznienia_pory(przyjazdy, rozklady):
         'noc': []
     }
 
-    for linia in przyjazdy.keys():
-        for przystanek in przyjazdy[linia].keys():
-            for numer in przyjazdy[linia][przystanek].keys():
-                for data in przyjazdy[linia][przystanek][numer].keys():
+    for linia in rozklady.keys():
+        for przystanek in rozklady[linia].keys():
+            for numer in rozklady[linia][przystanek].keys():
+                for data in rozklady[linia][przystanek][numer].keys():
                     czas_przyjazdu = przyjazdy[linia][przystanek][numer][data]
                     czas_rozkład = rozklady[linia][przystanek][numer][data]
                     
@@ -137,11 +137,12 @@ nazwy_plikow = [
 for plik_przyjazd, plik_rozkład in nazwy_plikow:
     dane_przyjazd, dane_rozkład = pr.processing(plik_przyjazd, plik_rozkład)
     
+    
     dane_przystanki = przetwarzanie_danych(dane_przyjazd, dane_rozkład, klucz_przystanek)
     dane_dni = przetwarzanie_danych(dane_przyjazd, dane_rozkład, klucz_dzień)
     dane_linia = przetwarzanie_danych(dane_przyjazd, dane_rozkład, klucz_linia)
     dane_mosty = przetwarzanie_danych(dane_przyjazd, dane_rozkład, klucz_most)
-    opoznienia_pory_dnia = opoznienie_pory(dane_przyjazd, dane_rozkład)
+    opoznienia_pory_dnia = opoznienia_pory(dane_przyjazd, dane_rozkład)
 
     # Tworzenie wykresów
     wykres(list(dane_przystanki.keys()), list(dane_przystanki.values()), 'Przystanki', 'Opóźnienie [min]', f'Opóźnienia dla danych przystanków w dniu {plik_przyjazd}')
