@@ -55,7 +55,7 @@ def fetch_schedule_by_ids(przystanki):
     Pozyskiwanie rozkładów jazdy po nazwie przystanku.
 
     INPUT:
-        przyjmuje przystanki w formie listy, gdzie argumentem jest np. ("2098", "01", "141").
+        przyjmuje przystanki w formie listy, gdzie argumentem jest np. ("Międzynarodowa", "01", "141").
     
     OUTPUT:
         nic nie zwraca, ale zapisuje pozyskane planowe przyjazdy pojazdów do pliku: "busSchedules.csv"
