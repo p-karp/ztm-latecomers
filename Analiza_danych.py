@@ -65,7 +65,7 @@ def klucz_most(linia, przystanek, numer, data):
 
 # Funkcja tworząca wykresy
 def wykres(argumenty, wartosci, nazwa_x, nazwa_y, tytul):
-    plt.figure(figsize=(30, 7))
+    plt.figure()
     plt.bar(argumenty, wartosci, color='skyblue')
     plt.xlabel(nazwa_x)
     plt.ylabel(nazwa_y)
@@ -141,7 +141,7 @@ for plik_przyjazd, plik_rozkład in nazwy_plikow:
     dane_przyjazd, dane_rozkład = pr.processing(plik_przyjazd, plik_rozkład)
     
     
-    #dane_przystanki = przetwarzanie_danych(dane_przyjazd, dane_rozkład, klucz_przystanek)
+    dane_przystanki = przetwarzanie_danych(dane_przyjazd, dane_rozkład, klucz_przystanek)
     dane_dni = przetwarzanie_danych(dane_przyjazd, dane_rozkład, klucz_dzień)
     lista_o.extend(dane_dni.values())
     lista_n.extend(dane_dni.keys())
