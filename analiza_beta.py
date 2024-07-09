@@ -132,21 +132,27 @@ nazwy_plikow = [
     ('./zebraneDane/dane_ok/rj_02-07.csv', './zebraneDane/dane_ok/dane_02-07.csv'),
     ('./zebraneDane/dane_ok/rj_05-07.csv', './zebraneDane/dane_ok/dane_05-07.csv')
 ]
-
+lista_o = []
+lista_n = []
 # Przetwarzanie danych i tworzenie wykresów dla każdego pliku
 for plik_przyjazd, plik_rozkład in nazwy_plikow:
     dane_przyjazd, dane_rozkład = pr.processing(plik_przyjazd, plik_rozkład)
     
     
-    dane_przystanki = przetwarzanie_danych(dane_przyjazd, dane_rozkład, klucz_przystanek)
+    #dane_przystanki = przetwarzanie_danych(dane_przyjazd, dane_rozkład, klucz_przystanek)
     dane_dni = przetwarzanie_danych(dane_przyjazd, dane_rozkład, klucz_dzień)
-    dane_linia = przetwarzanie_danych(dane_przyjazd, dane_rozkład, klucz_linia)
-    dane_mosty = przetwarzanie_danych(dane_przyjazd, dane_rozkład, klucz_most)
-    opoznienia_pory_dnia = opoznienia_pory(dane_przyjazd, dane_rozkład)
+    lista_o.append(dane_dni.values())
+    lista_n.append(dane_dni.keys())
+    #dane_linia = przetwarzanie_danych(dane_przyjazd, dane_rozkład, klucz_linia)
+    #dane_mosty = przetwarzanie_danych(dane_przyjazd, dane_rozkład, klucz_most)
+    #opoznienia_pory_dnia = opoznienia_pory(dane_przyjazd, dane_rozkład)
 
     # Tworzenie wykresów
-    wykres(list(dane_przystanki.keys()), list(dane_przystanki.values()), 'Przystanki', 'Opóźnienie [min]', f'Opóźnienia dla danych przystanków w dniu {plik_przyjazd}')
-    wykres(list(dane_dni.keys()), list(dane_dni.values()), 'Data', 'Opóźnienie [min]', f'Opóźnienia w dniu {plik_przyjazd}')
-    wykres(list(dane_linia.keys()), list(dane_linia.values()), 'Numery Linii', 'Opóźnienie [min]', f'Opóźnienia dla danej linii w dniu {plik_przyjazd}')
-    wykres(list(dane_mosty.keys()), list(dane_mosty.values()), 'Nazwa mostu', 'Opóźnienie [min]', f'Opóźnienia dla danego mostu w dniu {plik_przyjazd}')
-    wykres(list(opoznienia_pory_dnia.keys()), list(opoznienia_pory_dnia.values()), 'Pory Dnia', 'Opóźnienie [min]', f'Opóźnienia w zależności od pory dnia w dniu {plik_przyjazd}')
+    #wykres(list(dane_przystanki.keys()), list(dane_przystanki.values()), 'Przystanki', 'Opóźnienie [min]', f'Opóźnienia dla danych przystanków w dniu {plik_przyjazd}')
+    #wykres(list(dane_dni.keys()), list(dane_dni.values()), 'Data', 'Opóźnienie [min]', f'Opóźnienia w dniu {plik_przyjazd}')
+    #wykres(list(dane_linia.keys()), list(dane_linia.values()), 'Numery Linii', 'Opóźnienie [min]', f'Opóźnienia dla danej linii w dniu {plik_przyjazd}')
+    #wykres(list(dane_mosty.keys()), list(dane_mosty.values()), 'Nazwa mostu', 'Opóźnienie [min]', f'Opóźnienia dla danego mostu w dniu {plik_przyjazd}')
+    #wykres(list(opoznienia_pory_dnia.keys()), list(opoznienia_pory_dnia.values()), 'Pory Dnia', 'Opóźnienie [min]', f'Opóźnienia w zależności od pory dnia w dniu {plik_przyjazd}')
+    
+
+wykres(lista_n, lista_o, 'Data', 'Opóźnienie [min]', 'Opóźninia zależne od dnia')
