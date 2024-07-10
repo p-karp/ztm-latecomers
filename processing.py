@@ -59,8 +59,6 @@ def processing (sfp: str, dfp: str) -> dict:
 
 
 # '''Pokaz jak to wygląda w środku'''
-# D, S = processing('./zebraneDane/rj_30-06.csv', './zebraneDane/dane_30-06.csv')
+# D, S = processing('./zebraneDane/dane_ok/rj_30-06.csv', './zebraneDane/dane_ok/dane_30-06.csv')
 # print(D[6]['KS Polonia'])
 # print(S[6]['KS Polonia'])
-
-# Problem z:    7053;02;6;2024-06-30;08:28:00

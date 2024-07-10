@@ -3,7 +3,7 @@ from datetime import datetime
 import numpy as np
 
 
-df = pd.read_csv('./zebraneDane/dane_04-07_02.csv', encoding='windows-1250', delimiter=',')
+df = pd.read_csv('./zebraneDane/dane_ok/dane_04-07_02.csv', encoding='windows-1250', delimiter=',')
 pd.set_option('display.max_columns', None)
 
 # Usunięcie duplikatów
